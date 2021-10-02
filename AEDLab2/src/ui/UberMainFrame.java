@@ -34,6 +34,9 @@ public class UberMainFrame extends javax.swing.JFrame {
         carCatalogTable = new javax.swing.JTable();
         viewButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        formHeaderLabel = new javax.swing.JLabel();
+        viewButton1 = new javax.swing.JButton();
+        viewButton2 = new javax.swing.JButton();
         searchPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,7 +65,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         ));
         carCatalogScrollPane.setViewportView(carCatalogTable);
 
-        viewButton.setText("View ");
+        viewButton.setText("Create");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewButtonActionPerformed(evt);
@@ -76,6 +79,22 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        formHeaderLabel.setText(" ");
+
+        viewButton1.setText("View ");
+        viewButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButton1ActionPerformed(evt);
+            }
+        });
+
+        viewButton2.setText("Update");
+        viewButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
         adminPanel.setLayout(adminPanelLayout);
         adminPanelLayout.setHorizontalGroup(
@@ -84,9 +103,14 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(adminPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(viewButton)
                         .addGap(18, 18, 18)
+                        .addComponent(viewButton2)
+                        .addGap(9, 9, 9)
+                        .addComponent(viewButton1)
+                        .addGap(9, 9, 9)
                         .addComponent(deleteButton)
                         .addGap(56, 56, 56))
                     .addGroup(adminPanelLayout.createSequentialGroup()
@@ -104,8 +128,11 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addComponent(carCatalogScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteButton)
+                    .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewButton1)
                     .addComponent(viewButton)
-                    .addComponent(deleteButton))
+                    .addComponent(viewButton2))
                 .addGap(403, 403, 403))
         );
 
@@ -145,6 +172,14 @@ public class UberMainFrame extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void viewButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewButton1ActionPerformed
+
+    private void viewButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +223,10 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane carCatalogScrollPane;
     private javax.swing.JTable carCatalogTable;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JLabel formHeaderLabel;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JButton viewButton;
+    private javax.swing.JButton viewButton1;
+    private javax.swing.JButton viewButton2;
     // End of variables declaration//GEN-END:variables
 }
