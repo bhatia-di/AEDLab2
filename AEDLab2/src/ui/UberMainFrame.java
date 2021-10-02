@@ -42,9 +42,12 @@ public class UberMainFrame extends javax.swing.JFrame {
         UberMainTabbedFrame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         UberMainTabbedFrame.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
 
+        adminPanel.setAutoscrolls(true);
+        adminPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         carCatalogHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         carCatalogHeaderLabel.setForeground(new java.awt.Color(0, 0, 102));
-        carCatalogHeaderLabel.setText("Car Catalogue");
+        carCatalogHeaderLabel.setText("Car Catalog");
 
         carCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,18 +80,18 @@ public class UberMainFrame extends javax.swing.JFrame {
         adminPanel.setLayout(adminPanelLayout);
         adminPanelLayout.setHorizontalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(adminPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(carCatalogScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(carCatalogHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(viewButton)
                 .addGap(18, 18, 18)
                 .addComponent(deleteButton)
                 .addGap(56, 56, 56))
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(carCatalogScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(carCatalogHeaderLabel))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
