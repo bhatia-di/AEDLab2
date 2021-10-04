@@ -40,14 +40,23 @@ public class UberMainFrame extends javax.swing.JFrame {
         createButton = new javax.swing.JButton();
         createUpdateViewForm = new javax.swing.JPanel();
         modelNameLabel = new javax.swing.JLabel();
-        modelNameLabel1 = new javax.swing.JLabel();
-        modelNameLabel2 = new javax.swing.JLabel();
-        modelNameLabel3 = new javax.swing.JLabel();
-        modelNameLabel4 = new javax.swing.JLabel();
-        modelNameLabel5 = new javax.swing.JLabel();
-        modelNameLabel6 = new javax.swing.JLabel();
-        modelNameLabel7 = new javax.swing.JLabel();
-        modelNameLabel8 = new javax.swing.JLabel();
+        manufacturerNameLabel = new javax.swing.JLabel();
+        availabilityLabel = new javax.swing.JLabel();
+        availabiityTimestampLabel = new javax.swing.JLabel();
+        manufacturedTimestampLabel = new javax.swing.JLabel();
+        numberOfSeatsLabel = new javax.swing.JLabel();
+        serialNumberLabel = new javax.swing.JLabel();
+        maintenanceTimestampLabel = new javax.swing.JLabel();
+        addressTimestampLabel = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
         searchPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,21 +119,44 @@ public class UberMainFrame extends javax.swing.JFrame {
 
         modelNameLabel.setText("Model Name :");
 
-        modelNameLabel1.setText("Manufacturer Name:");
+        manufacturerNameLabel.setText("Manufacturer Name:");
 
-        modelNameLabel2.setText("Available:");
+        availabilityLabel.setText("Is Available?");
 
-        modelNameLabel3.setText("Available Timestamp:");
+        availabiityTimestampLabel.setText("Available Timestamp:");
 
-        modelNameLabel4.setText("Manufactured Timestamp:");
+        manufacturedTimestampLabel.setText("Manufactured Timestamp:");
 
-        modelNameLabel5.setText("Number of Seats: ");
+        numberOfSeatsLabel.setText("Number of Seats: ");
 
-        modelNameLabel6.setText("Serial Number: ");
+        serialNumberLabel.setText("Serial Number: ");
 
-        modelNameLabel7.setText("Maintenance Timestamp: ");
+        maintenanceTimestampLabel.setText("Maintenance Timestamp: ");
 
-        modelNameLabel8.setText("Address: ");
+        addressTimestampLabel.setText("Address: ");
+
+        jTextField1.setText(" ");
+
+        jCheckBox1.setText("Yes");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setText(" ");
+
+        jTextField3.setText(" ");
+
+        jTextField4.setText(" ");
+
+        jTextField5.setText(" ");
+
+        jTextField6.setText(" ");
+
+        jTextField7.setText(" ");
+
+        jTextField8.setText(" ");
 
         javax.swing.GroupLayout createUpdateViewFormLayout = new javax.swing.GroupLayout(createUpdateViewForm);
         createUpdateViewForm.setLayout(createUpdateViewFormLayout);
@@ -133,39 +165,74 @@ public class UberMainFrame extends javax.swing.JFrame {
             .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(modelNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(995, Short.MAX_VALUE))
+                    .addGroup(createUpdateViewFormLayout.createSequentialGroup()
+                        .addComponent(serialNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(createUpdateViewFormLayout.createSequentialGroup()
+                        .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modelNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(availabilityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(availabiityTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manufacturerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manufacturedTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numberOfSeatsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addressTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maintenanceTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField7)
+                            .addComponent(jTextField6)
+                            .addComponent(jTextField5)
+                            .addComponent(jTextField3)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField1)
+                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE))
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField8))
+                        .addGap(0, 514, Short.MAX_VALUE))))
         );
         createUpdateViewFormLayout.setVerticalGroup(
             createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(modelNameLabel)
-                .addGap(16, 16, 16)
-                .addComponent(modelNameLabel2)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(modelNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox1)
+                    .addComponent(availabilityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(availabiityTimestampLabel))
                 .addGap(18, 18, 18)
-                .addComponent(modelNameLabel3)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manufacturerNameLabel))
+                .addGap(25, 25, 25)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manufacturedTimestampLabel))
                 .addGap(18, 18, 18)
-                .addComponent(modelNameLabel1)
-                .addGap(26, 26, 26)
-                .addComponent(modelNameLabel4)
-                .addGap(16, 16, 16)
-                .addComponent(modelNameLabel5)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numberOfSeatsLabel)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(modelNameLabel6)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(serialNumberLabel)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(modelNameLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(modelNameLabel7)
-                .addGap(16, 16, 16))
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressTimestampLabel))
+                .addGap(13, 13, 13)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(maintenanceTimestampLabel)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
@@ -262,6 +329,10 @@ public class UberMainFrame extends javax.swing.JFrame {
         updateAdminHeader("Add details to create a Car record.");
         
     }//GEN-LAST:event_createButtonActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
     
     private void updateAdminHeader(String text) {
         formHeaderLabel.setText(text);
@@ -303,7 +374,10 @@ public class UberMainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane UberMainTabbedFrame;
+    private javax.swing.JLabel addressTimestampLabel;
     private javax.swing.JPanel adminPanel;
+    private javax.swing.JLabel availabiityTimestampLabel;
+    private javax.swing.JLabel availabilityLabel;
     private javax.swing.JLabel carCatalogHeaderLabel;
     private javax.swing.JScrollPane carCatalogScrollPane;
     private javax.swing.JTable carCatalogTable;
@@ -311,16 +385,22 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel createUpdateViewForm;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel formHeaderLabel;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel maintenanceTimestampLabel;
+    private javax.swing.JLabel manufacturedTimestampLabel;
+    private javax.swing.JLabel manufacturerNameLabel;
     private javax.swing.JLabel modelNameLabel;
-    private javax.swing.JLabel modelNameLabel1;
-    private javax.swing.JLabel modelNameLabel2;
-    private javax.swing.JLabel modelNameLabel3;
-    private javax.swing.JLabel modelNameLabel4;
-    private javax.swing.JLabel modelNameLabel5;
-    private javax.swing.JLabel modelNameLabel6;
-    private javax.swing.JLabel modelNameLabel7;
-    private javax.swing.JLabel modelNameLabel8;
+    private javax.swing.JLabel numberOfSeatsLabel;
     private javax.swing.JPanel searchPanel;
+    private javax.swing.JLabel serialNumberLabel;
     private javax.swing.JButton updateButton;
     private javax.swing.JButton viewButton;
     // End of variables declaration//GEN-END:variables
