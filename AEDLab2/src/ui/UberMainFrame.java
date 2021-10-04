@@ -16,6 +16,7 @@ public class UberMainFrame extends javax.swing.JFrame {
      */
     public UberMainFrame() {
         initComponents();
+        
     }
 
     /**
@@ -37,6 +38,16 @@ public class UberMainFrame extends javax.swing.JFrame {
         formHeaderLabel = new javax.swing.JLabel();
         updateButton = new javax.swing.JButton();
         createButton = new javax.swing.JButton();
+        createUpdateViewForm = new javax.swing.JPanel();
+        modelNameLabel = new javax.swing.JLabel();
+        modelNameLabel1 = new javax.swing.JLabel();
+        modelNameLabel2 = new javax.swing.JLabel();
+        modelNameLabel3 = new javax.swing.JLabel();
+        modelNameLabel4 = new javax.swing.JLabel();
+        modelNameLabel5 = new javax.swing.JLabel();
+        modelNameLabel6 = new javax.swing.JLabel();
+        modelNameLabel7 = new javax.swing.JLabel();
+        modelNameLabel8 = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,6 +106,68 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        createUpdateViewForm.setAutoscrolls(true);
+
+        modelNameLabel.setText("Model Name :");
+
+        modelNameLabel1.setText("Manufacturer Name:");
+
+        modelNameLabel2.setText("Available:");
+
+        modelNameLabel3.setText("Available Timestamp:");
+
+        modelNameLabel4.setText("Manufactured Timestamp:");
+
+        modelNameLabel5.setText("Number of Seats: ");
+
+        modelNameLabel6.setText("Serial Number: ");
+
+        modelNameLabel7.setText("Maintenance Timestamp: ");
+
+        modelNameLabel8.setText("Address: ");
+
+        javax.swing.GroupLayout createUpdateViewFormLayout = new javax.swing.GroupLayout(createUpdateViewForm);
+        createUpdateViewForm.setLayout(createUpdateViewFormLayout);
+        createUpdateViewFormLayout.setHorizontalGroup(
+            createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createUpdateViewFormLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(modelNameLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(modelNameLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(995, Short.MAX_VALUE))
+        );
+        createUpdateViewFormLayout.setVerticalGroup(
+            createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createUpdateViewFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(modelNameLabel)
+                .addGap(16, 16, 16)
+                .addComponent(modelNameLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(modelNameLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(modelNameLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(modelNameLabel4)
+                .addGap(16, 16, 16)
+                .addComponent(modelNameLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(modelNameLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(modelNameLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(modelNameLabel7)
+                .addGap(16, 16, 16))
+        );
+
         javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
         adminPanel.setLayout(adminPanelLayout);
         adminPanelLayout.setHorizontalGroup(
@@ -115,6 +188,9 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(carCatalogScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1215, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(carCatalogHeaderLabel))
                 .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addComponent(createUpdateViewForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +206,8 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(updateButton)
                     .addComponent(viewButton)
                     .addComponent(createButton))
-                .addGap(403, 403, 403))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(createUpdateViewForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         UberMainTabbedFrame.addTab("Admin", adminPanel);
@@ -231,8 +308,18 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane carCatalogScrollPane;
     private javax.swing.JTable carCatalogTable;
     private javax.swing.JButton createButton;
+    private javax.swing.JPanel createUpdateViewForm;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel formHeaderLabel;
+    private javax.swing.JLabel modelNameLabel;
+    private javax.swing.JLabel modelNameLabel1;
+    private javax.swing.JLabel modelNameLabel2;
+    private javax.swing.JLabel modelNameLabel3;
+    private javax.swing.JLabel modelNameLabel4;
+    private javax.swing.JLabel modelNameLabel5;
+    private javax.swing.JLabel modelNameLabel6;
+    private javax.swing.JLabel modelNameLabel7;
+    private javax.swing.JLabel modelNameLabel8;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JButton updateButton;
     private javax.swing.JButton viewButton;
