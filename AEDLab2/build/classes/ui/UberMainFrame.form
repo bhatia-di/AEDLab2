@@ -72,12 +72,12 @@
                           <Group type="102" attributes="0">
                               <Component id="formHeaderLabel" min="-2" pref="369" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="createButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="updateButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="viewButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="viewButton2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                              <Component id="viewButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           </Group>
@@ -103,9 +103,9 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="formHeaderLabel" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="viewButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="updateButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="viewButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="viewButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="createButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="403" max="-2" attributes="0"/>
                   </Group>
@@ -174,7 +174,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="viewButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create"/>
+                <Property name="text" type="java.lang.String" value="View "/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewButtonActionPerformed"/>
@@ -193,20 +193,20 @@
                 <Property name="text" type="java.lang.String" value=" "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="viewButton1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="View "/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewButton1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="viewButton2">
+            <Component class="javax.swing.JButton" name="updateButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="createButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Create"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
