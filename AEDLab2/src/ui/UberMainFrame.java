@@ -164,20 +164,31 @@ public class UberMainFrame extends javax.swing.JFrame {
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         // TODO add your handling code here:
+        updateAdminHeader(" ");
+
     }//GEN-LAST:event_viewButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
+        updateAdminHeader(" ");
+
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
+        updateAdminHeader("Update details to for below Car record & hit save.");
+
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
+        updateAdminHeader("Add details to create a Car record.");
+        
     }//GEN-LAST:event_createButtonActionPerformed
-
+    
+    private void updateAdminHeader(String text) {
+        formHeaderLabel.setText(text);
+    }
     /**
      * @param args the command line arguments
      */
