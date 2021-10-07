@@ -53,6 +53,21 @@ public class UberMainFrame extends javax.swing.JFrame {
         availableMonthCombobox1.setModel(monthCombBoxModel);
         manufacturedMonthCombobox.setModel(monthCombBoxModel);
         expiryMonthCombobox.setModel(monthCombBoxModel);
+        
+        
+        for(int index = 1; index<32; index++) {
+           availableDateComboBox.addItem(index);
+           manufacturedDateComboBox1.addItem(index);
+           maintainenaceDateComboBox.addItem(index);
+        }
+        
+        
+         for(int index = 2000; index<2022; index++) {
+             availableYearCombobox.addItem(index);
+             manufacturedYearCombobox.addItem(index);
+             expiryYearCombobox.addItem(index);
+        }
+        
     }
 
     /**
@@ -124,6 +139,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         adminPanel.setAutoscrolls(true);
         adminPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        carCatalogTable.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         carCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
@@ -213,8 +229,6 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
-        availableYearCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021" }));
-
         availableMonthCombobox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 availableMonthCombobox1ActionPerformed(evt);
@@ -260,13 +274,17 @@ public class UberMainFrame extends javax.swing.JFrame {
         addressPanelLayout.setHorizontalGroup(
             addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addressPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(zipCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                    .addGroup(addressPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(zipCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(addressPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(stateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(zipCodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
                     .addComponent(cityTextField)
@@ -281,33 +299,21 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(streetAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addressLabel))
-                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addressPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(cityLabel)
-                        .addGap(23, 23, 23)
-                        .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(zipCodeLabel)
-                            .addComponent(zipCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(addressPanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stateLabel)
-                    .addComponent(stateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(zipCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zipCodeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(stateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stateLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        manufacturedYearCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021" }));
-
-        expiryYearCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021" }));
-
-        maintainenaceDateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "31" }));
-
-        availableDateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "31" }));
-
-        manufacturedDateComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "31" }));
         manufacturedDateComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manufacturedDateComboBox1ActionPerformed(evt);
@@ -340,6 +346,15 @@ public class UberMainFrame extends javax.swing.JFrame {
             .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(saveChangesButton)
+                    .addGroup(createUpdateViewFormLayout.createSequentialGroup()
+                        .addComponent(maintenanceTimestampLabel)
+                        .addGap(42, 42, 42)
+                        .addComponent(maintainenaceDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(expiryMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                         .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(modelNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -383,19 +398,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(availableSecondTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(addressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(serialNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(createUpdateViewFormLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(saveChangesButton)
-                            .addGroup(createUpdateViewFormLayout.createSequentialGroup()
-                                .addComponent(maintenanceTimestampLabel)
-                                .addGap(42, 42, 42)
-                                .addComponent(maintainenaceDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(expiryMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(serialNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(278, Short.MAX_VALUE))
         );
         createUpdateViewFormLayout.setVerticalGroup(
@@ -448,9 +451,9 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(maintainenaceDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(expiryMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saveChangesButton)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         createUpdateScrollablePanel.setViewportView(createUpdateViewForm);
@@ -465,7 +468,8 @@ public class UberMainFrame extends javax.swing.JFrame {
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(carCatalogScrollPane)
                     .addGroup(adminPanelLayout.createSequentialGroup()
                         .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -475,9 +479,9 @@ public class UberMainFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(viewButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteButton))
-                    .addComponent(carCatalogScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(deleteButton)
+                        .addGap(40, 40, 40)))
+                .addContainerGap())
             .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1286, Short.MAX_VALUE)
             .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(adminPanelLayout.createSequentialGroup()
@@ -489,22 +493,22 @@ public class UberMainFrame extends javax.swing.JFrame {
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminPanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(carCatalogScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(carCatalogScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteButton)
                     .addComponent(updateButton)
                     .addComponent(viewButton)
-                    .addComponent(createButton)
-                    .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createButton))
                 .addGap(18, 18, 18)
-                .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 824, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(19, 19, 19)
                     .addComponent(carCatalogHeaderLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1223, Short.MAX_VALUE)))
+                    .addContainerGap(1072, Short.MAX_VALUE)))
         );
 
         UberMainTabbedFrame.addTab("Admin", adminPanel);
@@ -517,7 +521,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1275, Short.MAX_VALUE)
+            .addGap(0, 1124, Short.MAX_VALUE)
         );
 
         UberMainTabbedFrame.addTab("Search", searchPanel);
@@ -530,7 +534,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(UberMainTabbedFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 1316, Short.MAX_VALUE)
+            .addComponent(UberMainTabbedFrame)
         );
 
         pack();
@@ -574,7 +578,12 @@ public class UberMainFrame extends javax.swing.JFrame {
         Car carRecord = new Car();
         carRecord.setModelName(modelNameTextField.getText().trim());
         carRecord.setIsAvailable(isAvailableCheckbox.isSelected());
-        carRecord.setAvailabilityTimestamp(LocalDateTime.of((int) availableYearCombobox.getSelectedItem(), ((Month)manufacturedMonthCombobox.getSelectedItem()).getMonthNumber(), (int)availableDateComboBox.getSelectedItem(), Integer.parseInt(availableHourTextField.getText().trim()), Integer.parseInt(availableMinuteTextField.getText().trim()), Integer.parseInt(availableSecondTextField.getText().trim())));
+        carRecord.setAvailabilityTimestamp(LocalDateTime.of((int) availableYearCombobox.getSelectedItem(),
+                ((Month)manufacturedMonthCombobox.getSelectedItem()).getMonthNumber(), 
+                (int)availableDateComboBox.getSelectedItem(), 
+                Integer.parseInt(availableHourTextField.getText().trim()),
+                Integer.parseInt(availableMinuteTextField.getText().trim()), 
+                Integer.parseInt(availableSecondTextField.getText().trim())));
         carRecord.setManufacturer(manufacturerNameTextField.getText().trim());
         carRecord.setManufacturedTimestamp(LocalDate.of((int) manufacturedYearCombobox.getSelectedItem(),
                 ((Month)manufacturedMonthCombobox.getSelectedItem()).getMonthNumber(), (int) manufacturedDateComboBox1.getSelectedItem()));
@@ -590,8 +599,9 @@ public class UberMainFrame extends javax.swing.JFrame {
         
         
         carArray.add(carRecord);
-        carCatalog.setCars(carArray);
         System.out.println(carRecord);
+
+        carCatalog.setCars(carArray);
         
        
     }//GEN-LAST:event_saveChangesButtonActionPerformed
@@ -650,12 +660,12 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel adminPanel;
     private javax.swing.JLabel availabiityTimestampLabel;
     private javax.swing.JLabel availabilityLabel;
-    private javax.swing.JComboBox<String> availableDateComboBox;
+    private javax.swing.JComboBox<Integer> availableDateComboBox;
     private javax.swing.JTextField availableHourTextField;
     private javax.swing.JTextField availableMinuteTextField;
     private javax.swing.JComboBox<String> availableMonthCombobox1;
     private javax.swing.JTextField availableSecondTextField;
-    private javax.swing.JComboBox<String> availableYearCombobox;
+    private javax.swing.JComboBox<Integer> availableYearCombobox;
     private javax.swing.JLabel carCatalogHeaderLabel1;
     private javax.swing.JScrollPane carCatalogScrollPane;
     private javax.swing.JTable carCatalogTable;
@@ -668,15 +678,15 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel dotTimeLabel;
     private javax.swing.JLabel dotTimeLabel1;
     private javax.swing.JComboBox<String> expiryMonthCombobox;
-    private javax.swing.JComboBox<String> expiryYearCombobox;
+    private javax.swing.JComboBox<Integer> expiryYearCombobox;
     private javax.swing.JLabel formHeaderLabel;
     private javax.swing.JCheckBox isAvailableCheckbox;
-    private javax.swing.JComboBox<String> maintainenaceDateComboBox;
+    private javax.swing.JComboBox<Integer> maintainenaceDateComboBox;
     private javax.swing.JLabel maintenanceTimestampLabel;
-    private javax.swing.JComboBox<String> manufacturedDateComboBox1;
+    private javax.swing.JComboBox<Integer> manufacturedDateComboBox1;
     private javax.swing.JComboBox<String> manufacturedMonthCombobox;
     private javax.swing.JLabel manufacturedTimestampLabel;
-    private javax.swing.JComboBox<String> manufacturedYearCombobox;
+    private javax.swing.JComboBox<Integer> manufacturedYearCombobox;
     private javax.swing.JLabel manufacturerNameLabel;
     private javax.swing.JTextField manufacturerNameTextField;
     private javax.swing.JLabel modelNameLabel;

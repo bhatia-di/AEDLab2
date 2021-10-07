@@ -16,6 +16,10 @@ public class CarCatalog {
     private ArrayList<Car> cars;
     private LocalDateTime lastUpdatedTimestamp;
     
+    public CarCatalog() {
+        cars = new ArrayList<Car>();
+    }
+    
  
 
     public ArrayList<Car> getCars() {
