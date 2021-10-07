@@ -52,7 +52,6 @@ public class UberMainFrame extends javax.swing.JFrame {
         availableYearCombobox = new javax.swing.JComboBox<>();
         availableMonthCombobox1 = new javax.swing.JComboBox<>();
         manufacturerNameTextField = new javax.swing.JTextField();
-        numberOfSeatsTextField = new javax.swing.JTextField();
         serialNumberTextField = new javax.swing.JTextField();
         saveChangesButton = new javax.swing.JButton();
         addressPanel = new javax.swing.JPanel();
@@ -71,6 +70,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         maintainenaceDateComboBox = new javax.swing.JComboBox<>();
         availableDateComboBox = new javax.swing.JComboBox<>();
         manufacturedDateComboBox1 = new javax.swing.JComboBox<>();
+        numberOfSeatSlider = new javax.swing.JSlider();
         carCatalogHeaderLabel1 = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
 
@@ -178,8 +178,6 @@ public class UberMainFrame extends javax.swing.JFrame {
 
         manufacturerNameTextField.setText(" ");
 
-        numberOfSeatsTextField.setText(" ");
-
         serialNumberTextField.setText(" ");
 
         saveChangesButton.setText("Save");
@@ -270,6 +268,14 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        numberOfSeatSlider.setMaximum(8);
+        numberOfSeatSlider.setMinimum(1);
+        numberOfSeatSlider.setMinorTickSpacing(1);
+        numberOfSeatSlider.setPaintLabels(true);
+        numberOfSeatSlider.setPaintTicks(true);
+        numberOfSeatSlider.setSnapToTicks(true);
+        numberOfSeatSlider.setToolTipText("");
+
         javax.swing.GroupLayout createUpdateViewFormLayout = new javax.swing.GroupLayout(createUpdateViewForm);
         createUpdateViewForm.setLayout(createUpdateViewFormLayout);
         createUpdateViewFormLayout.setHorizontalGroup(
@@ -303,7 +309,6 @@ public class UberMainFrame extends javax.swing.JFrame {
                                     .addComponent(modelNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(isAvailableCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(25, 25, 25))
-                            .addComponent(numberOfSeatsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(manufacturerNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createUpdateViewFormLayout.createSequentialGroup()
@@ -319,7 +324,8 @@ public class UberMainFrame extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(manufacturedMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(manufacturedYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(manufacturedYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(numberOfSeatSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(486, Short.MAX_VALUE))
         );
         createUpdateViewFormLayout.setVerticalGroup(
@@ -352,9 +358,9 @@ public class UberMainFrame extends javax.swing.JFrame {
                         .addComponent(manufacturedDateComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(manufacturedTimestampLabel))
                 .addGap(18, 18, 18)
-                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(numberOfSeatsLabel)
-                    .addComponent(numberOfSeatsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(numberOfSeatSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(serialNumberLabel)
@@ -559,8 +565,8 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField manufacturerNameTextField;
     private javax.swing.JLabel modelNameLabel;
     private javax.swing.JTextField modelNameTextField;
+    private javax.swing.JSlider numberOfSeatSlider;
     private javax.swing.JLabel numberOfSeatsLabel;
-    private javax.swing.JTextField numberOfSeatsTextField;
     private javax.swing.JButton saveChangesButton;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JLabel serialNumberLabel;
