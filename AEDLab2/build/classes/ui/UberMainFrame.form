@@ -108,8 +108,8 @@
                           <Component id="formHeaderLabel" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="createUpdateScrollablePanel" pref="779" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <Component id="createUpdateScrollablePanel" min="-2" pref="824" max="-2" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -263,18 +263,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="addressPanel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="saveChangesButton" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="maintenanceTimestampLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                      <Component id="maintainenaceDateComboBox" min="-2" pref="77" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="expiryMonthCombobox" min="-2" pref="204" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="expiryYearCombobox" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="serialNumberLabel" min="-2" pref="135" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="modelNameLabel" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
@@ -297,9 +285,9 @@
                                               <Component id="manufacturerNameTextField" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="availableDateComboBox" min="-2" pref="77" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="availableMonthCombobox1" min="-2" pref="204" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="availableMonthCombobox1" min="-2" pref="204" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="availableYearCombobox" min="-2" pref="112" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -315,9 +303,36 @@
                                           </Group>
                                           <Component id="numberOfSeatSlider" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="availableHourTextField" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="dotTimeLabel1" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="availableMinuteTextField" min="-2" pref="55" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="dotTimeLabel" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="availableSecondTextField" min="-2" pref="55" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="addressPanel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="serialNumberLabel" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="saveChangesButton" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="maintenanceTimestampLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                              <Component id="maintainenaceDateComboBox" min="-2" pref="77" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="expiryMonthCombobox" min="-2" pref="204" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="expiryYearCombobox" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="486" max="32767" attributes="0"/>
+                              <EmptySpace pref="278" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -341,6 +356,11 @@
                                       <Component id="availableMonthCombobox1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="availableYearCombobox" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="availableDateComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="availableHourTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dotTimeLabel" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="availableMinuteTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="dotTimeLabel1" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="availableSecondTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -357,7 +377,7 @@
                                   </Group>
                                   <Component id="manufacturedTimestampLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="numberOfSeatsLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="numberOfSeatSlider" min="-2" max="-2" attributes="0"/>
@@ -369,7 +389,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="addressPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="maintenanceTimestampLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="maintainenaceDateComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -378,7 +398,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="saveChangesButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="50" max="32767" attributes="0"/>
+                              <EmptySpace pref="43" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -497,22 +517,12 @@
                     <Component class="javax.swing.JComboBox" name="availableMonthCombobox1">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="12">
-                            <StringItem index="0" value="January"/>
-                            <StringItem index="1" value="February"/>
-                            <StringItem index="2" value="March"/>
-                            <StringItem index="3" value="April"/>
-                            <StringItem index="4" value="May"/>
-                            <StringItem index="5" value="June"/>
-                            <StringItem index="6" value="July"/>
-                            <StringItem index="7" value="August"/>
-                            <StringItem index="8" value="September"/>
-                            <StringItem index="9" value="October"/>
-                            <StringItem index="10" value="November"/>
-                            <StringItem index="11" value="December"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="availableMonthCombobox1ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -531,12 +541,15 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Save"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveChangesButtonActionPerformed"/>
+                      </Events>
                     </Component>
                     <Container class="javax.swing.JPanel" name="addressPanel">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                            <TitledBorder title="Address">
+                            <TitledBorder title="Destination Location">
                               <Font PropertyName="font" name="Segoe UI" size="18" style="1"/>
                             </TitledBorder>
                           </Border>
@@ -559,7 +572,7 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="zipCodeTextField" pref="398" max="32767" attributes="0"/>
                                       <Component id="cityTextField" max="32767" attributes="0"/>
-                                      <Component id="addressTextField2" max="32767" attributes="0"/>
+                                      <Component id="stateTextField" max="32767" attributes="0"/>
                                       <Component id="streetAddressTextField" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
@@ -568,8 +581,8 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="streetAddressTextField" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -592,9 +605,9 @@
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="stateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="addressTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="stateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="30" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -618,7 +631,7 @@
                             <Property name="text" type="java.lang.String" value=" "/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="addressTextField2">
+                        <Component class="javax.swing.JTextField" name="stateTextField">
                           <Properties>
                             <Property name="text" type="java.lang.String" value=" "/>
                           </Properties>
@@ -688,24 +701,6 @@
                       </AuxValues>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="manufacturedMonthCombobox">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="12">
-                            <StringItem index="0" value="January"/>
-                            <StringItem index="1" value="February"/>
-                            <StringItem index="2" value="March"/>
-                            <StringItem index="3" value="April"/>
-                            <StringItem index="4" value="May"/>
-                            <StringItem index="5" value="June"/>
-                            <StringItem index="6" value="July"/>
-                            <StringItem index="7" value="August"/>
-                            <StringItem index="8" value="September"/>
-                            <StringItem index="9" value="October"/>
-                            <StringItem index="10" value="November"/>
-                            <StringItem index="11" value="December"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -744,24 +739,6 @@
                       </AuxValues>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="expiryMonthCombobox">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="12">
-                            <StringItem index="0" value="January"/>
-                            <StringItem index="1" value="February"/>
-                            <StringItem index="2" value="March"/>
-                            <StringItem index="3" value="April"/>
-                            <StringItem index="4" value="May"/>
-                            <StringItem index="5" value="June"/>
-                            <StringItem index="6" value="July"/>
-                            <StringItem index="7" value="August"/>
-                            <StringItem index="8" value="September"/>
-                            <StringItem index="9" value="October"/>
-                            <StringItem index="10" value="November"/>
-                            <StringItem index="11" value="December"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -898,9 +875,39 @@
                         <Property name="minimum" type="int" value="1"/>
                         <Property name="minorTickSpacing" type="int" value="1"/>
                         <Property name="paintLabels" type="boolean" value="true"/>
-                        <Property name="paintTicks" type="boolean" value="true"/>
                         <Property name="snapToTicks" type="boolean" value="true"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="availableHourTextField">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="dotTimeLabel">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value=" :: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="availableMinuteTextField">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value=" "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="dotTimeLabel1">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="24" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value=" :: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="availableSecondTextField">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value=" "/>
                       </Properties>
                     </Component>
                   </SubComponents>

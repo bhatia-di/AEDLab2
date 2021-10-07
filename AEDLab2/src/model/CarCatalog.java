@@ -6,20 +6,23 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
  * @author 18577
  */
 public class CarCatalog {
-    private Car[] cars;
+    private ArrayList<Car> cars;
     private LocalDateTime lastUpdatedTimestamp;
+    
+ 
 
-    public Car[] getCars() {
+    public ArrayList<Car> getCars() {
         return cars;
     }
 
-    public void setCars(Car[] cars) {
+    public void setCars(ArrayList<Car> cars) {
         this.cars = cars;
         setLastUpdatedTimestamp(LocalDateTime.now());
     }

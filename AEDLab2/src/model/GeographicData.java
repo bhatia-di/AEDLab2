@@ -17,5 +17,15 @@ public class GeographicData {
     private String state;
     private String country;
     private String zipcode;
+    
+    public GeographicData(String add, String city, String state, String country, String zipcode) {
+    this.address= add;
+    this.city = city;
+    this.state = state;
+    this.country = country;
+    this.zipcode = zipcode;
+    
+          
+    }
           
 }
