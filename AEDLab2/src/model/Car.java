@@ -7,6 +7,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import model.GeographicData;
 
 /**
@@ -25,6 +26,27 @@ public class Car {
     private GeographicData geographicData;
     private LocalDate maintenanceExpiryTimestamp;  
 
+    public Car(String modelName, boolean isAvailable, LocalDateTime availabilityTimestamp, String manufacturer, LocalDate manufacturedTimestamp, int noOfSeats, String serialNumber, String modelNumber, GeographicData geographicData, LocalDate maintenanceExpiryTimestamp) {
+        this.modelName = modelName;
+        this.isAvailable = isAvailable;
+        this.availabilityTimestamp = availabilityTimestamp;
+        this.manufacturer = manufacturer;
+        this.manufacturedTimestamp = manufacturedTimestamp;
+        this.noOfSeats = noOfSeats;
+        this.serialNumber = serialNumber;
+        this.modelNumber = modelNumber;
+        this.geographicData = geographicData;
+        this.maintenanceExpiryTimestamp = maintenanceExpiryTimestamp;
+    }
+    
+    public Car() {
+    }
+
+    
+    
+    
+    
+
     public String getModelName() {
         return modelName;
     }
@@ -42,7 +64,7 @@ public class Car {
     }
 
     public String getAvailabilityTimestamp() {
-        return availabilityTimestamp.toString();
+        return Objects.isNull(availabilityTimestamp) ? "" : availabilityTimestamp.toString();
     }
 
     public void setAvailabilityTimestamp(LocalDateTime availabilityTimestamp) {

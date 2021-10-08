@@ -70,5 +70,13 @@ public class GeographicData {
     
           
     }
+
+    @Override
+    public String toString() {
+        return city;
+    }
+    
+    
+    
           
 }

@@ -31,6 +31,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         initTableModel();
         initComponents();
         loadMonthModel();
+        populateTableHistory();
         
         
     }
@@ -152,16 +153,6 @@ public class UberMainFrame extends javax.swing.JFrame {
         availableMonthCombobox1 = new javax.swing.JComboBox<>();
         manufacturerNameTextField = new javax.swing.JTextField();
         serialNumberTextField = new javax.swing.JTextField();
-        saveChangesButton = new javax.swing.JButton();
-        addressPanel = new javax.swing.JPanel();
-        zipCodeTextField = new javax.swing.JTextField();
-        stateLabel = new javax.swing.JLabel();
-        streetAddressTextField = new javax.swing.JTextField();
-        stateTextField = new javax.swing.JTextField();
-        zipCodeLabel = new javax.swing.JLabel();
-        cityLabel = new javax.swing.JLabel();
-        cityTextField = new javax.swing.JTextField();
-        addressLabel = new javax.swing.JLabel();
         manufacturedYearCombobox = new javax.swing.JComboBox<>();
         manufacturedMonthCombobox = new javax.swing.JComboBox<>();
         expiryYearCombobox = new javax.swing.JComboBox<>();
@@ -175,6 +166,11 @@ public class UberMainFrame extends javax.swing.JFrame {
         availableMinuteTextField = new javax.swing.JTextField();
         dotTimeLabel1 = new javax.swing.JLabel();
         availableSecondTextField = new javax.swing.JTextField();
+        modelNumberLabel = new javax.swing.JLabel();
+        modelNumberTextField = new javax.swing.JTextField();
+        cityLabel = new javax.swing.JLabel();
+        cityTextField = new javax.swing.JTextField();
+        saveChangesButton = new javax.swing.JButton();
         carCatalogHeaderLabel1 = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
 
@@ -187,7 +183,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         adminPanel.setAutoscrolls(true);
         adminPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        carCatalogTable.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        carCatalogTable.setForeground(new java.awt.Color(0, 0, 102));
         carCatalogTable.setModel(carCatalogTableModel);
         carCatalogTable.setColumnSelectionAllowed(true);
         carCatalogScrollPane.setViewportView(carCatalogTable);
@@ -229,31 +225,41 @@ public class UberMainFrame extends javax.swing.JFrame {
         createUpdateViewForm.setAutoscrolls(true);
 
         modelNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        modelNameLabel.setForeground(new java.awt.Color(0, 0, 102));
         modelNameLabel.setText("Model Name :");
 
         manufacturerNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        manufacturerNameLabel.setForeground(new java.awt.Color(0, 0, 102));
         manufacturerNameLabel.setText("Manufacturer Name:");
 
         availabilityLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        availabilityLabel.setForeground(new java.awt.Color(0, 0, 102));
         availabilityLabel.setText("Is Available?");
 
         availabiityTimestampLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        availabiityTimestampLabel.setForeground(new java.awt.Color(0, 0, 102));
         availabiityTimestampLabel.setText("Available Timestamp:");
 
         manufacturedTimestampLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        manufacturedTimestampLabel.setForeground(new java.awt.Color(0, 0, 102));
         manufacturedTimestampLabel.setText("Manufactured Timestamp:");
 
         numberOfSeatsLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        numberOfSeatsLabel.setForeground(new java.awt.Color(0, 0, 102));
         numberOfSeatsLabel.setText("Number of Seats: ");
 
         serialNumberLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        serialNumberLabel.setForeground(new java.awt.Color(0, 0, 102));
         serialNumberLabel.setText("Serial Number: ");
 
         maintenanceTimestampLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        maintenanceTimestampLabel.setForeground(new java.awt.Color(0, 0, 102));
         maintenanceTimestampLabel.setText("Maintenance Expiry Timestamp: ");
 
+        modelNameTextField.setForeground(new java.awt.Color(0, 0, 102));
         modelNameTextField.setText(" ");
 
+        isAvailableCheckbox.setForeground(new java.awt.Color(0, 0, 102));
         isAvailableCheckbox.setText("Yes");
         isAvailableCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,97 +267,41 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        availableYearCombobox.setForeground(new java.awt.Color(0, 0, 102));
+
+        availableMonthCombobox1.setForeground(new java.awt.Color(0, 0, 102));
         availableMonthCombobox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 availableMonthCombobox1ActionPerformed(evt);
             }
         });
 
+        manufacturerNameTextField.setForeground(new java.awt.Color(0, 0, 102));
         manufacturerNameTextField.setText(" ");
 
+        serialNumberTextField.setForeground(new java.awt.Color(0, 0, 102));
         serialNumberTextField.setText(" ");
 
-        saveChangesButton.setText("Save");
-        saveChangesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveChangesButtonActionPerformed(evt);
-            }
-        });
+        manufacturedYearCombobox.setForeground(new java.awt.Color(0, 0, 102));
 
-        addressPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Destination Location", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 18))); // NOI18N
-        addressPanel.setAutoscrolls(true);
+        manufacturedMonthCombobox.setForeground(new java.awt.Color(0, 0, 102));
 
-        zipCodeTextField.setText(" ");
+        expiryYearCombobox.setForeground(new java.awt.Color(0, 0, 102));
 
-        stateLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        stateLabel.setText("State:");
+        expiryMonthCombobox.setForeground(new java.awt.Color(0, 0, 102));
 
-        streetAddressTextField.setText(" ");
+        maintainenaceDateComboBox.setForeground(new java.awt.Color(0, 0, 102));
 
-        stateTextField.setText(" ");
+        availableDateComboBox.setForeground(new java.awt.Color(0, 0, 102));
 
-        zipCodeLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        zipCodeLabel.setText("Zip Code:");
-
-        cityLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        cityLabel.setText("City:");
-
-        cityTextField.setText(" ");
-
-        addressLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        addressLabel.setText("Street Address:");
-
-        javax.swing.GroupLayout addressPanelLayout = new javax.swing.GroupLayout(addressPanel);
-        addressPanel.setLayout(addressPanelLayout);
-        addressPanelLayout.setHorizontalGroup(
-            addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addressPanelLayout.createSequentialGroup()
-                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addressPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(zipCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(addressPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(stateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
-                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(zipCodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
-                    .addComponent(cityTextField)
-                    .addComponent(stateTextField)
-                    .addComponent(streetAddressTextField))
-                .addGap(116, 116, 116))
-        );
-        addressPanelLayout.setVerticalGroup(
-            addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addressPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(streetAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addressLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cityLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zipCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(zipCodeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(addressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(stateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(stateLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
+        manufacturedDateComboBox1.setForeground(new java.awt.Color(0, 0, 102));
         manufacturedDateComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manufacturedDateComboBox1ActionPerformed(evt);
             }
         });
 
+        numberOfSeatSlider.setForeground(new java.awt.Color(0, 0, 102));
         numberOfSeatSlider.setMaximum(8);
         numberOfSeatSlider.setMinimum(1);
         numberOfSeatSlider.setMinorTickSpacing(1);
@@ -359,17 +309,38 @@ public class UberMainFrame extends javax.swing.JFrame {
         numberOfSeatSlider.setSnapToTicks(true);
         numberOfSeatSlider.setToolTipText("");
 
+        availableHourTextField.setForeground(new java.awt.Color(0, 0, 102));
         availableHourTextField.setText(" ");
 
         dotTimeLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dotTimeLabel.setForeground(new java.awt.Color(0, 0, 102));
         dotTimeLabel.setText(" :: ");
 
+        availableMinuteTextField.setForeground(new java.awt.Color(0, 0, 102));
         availableMinuteTextField.setText(" ");
 
         dotTimeLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        dotTimeLabel1.setForeground(new java.awt.Color(0, 0, 102));
         dotTimeLabel1.setText(" :: ");
 
+        availableSecondTextField.setForeground(new java.awt.Color(0, 0, 102));
         availableSecondTextField.setText(" ");
+
+        modelNumberLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        modelNumberLabel.setForeground(new java.awt.Color(0, 0, 102));
+        modelNumberLabel.setText("Model Number: ");
+
+        modelNumberTextField.setForeground(new java.awt.Color(0, 0, 102));
+        modelNumberTextField.setText(" ");
+
+        cityLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cityLabel.setForeground(new java.awt.Color(0, 0, 102));
+        cityLabel.setText("Destination City:");
+
+        cityTextField.setForeground(new java.awt.Color(0, 0, 102));
+        cityTextField.setText(" ");
+
+        saveChangesButton.setText("Save");
 
         javax.swing.GroupLayout createUpdateViewFormLayout = new javax.swing.GroupLayout(createUpdateViewForm);
         createUpdateViewForm.setLayout(createUpdateViewFormLayout);
@@ -387,6 +358,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                         .addComponent(expiryMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(serialNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                         .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(modelNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -394,44 +366,48 @@ public class UberMainFrame extends javax.swing.JFrame {
                             .addComponent(manufacturerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(manufacturedTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(numberOfSeatsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(availabiityTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(availabiityTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(modelNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(83, 83, 83)
                         .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createUpdateViewFormLayout.createSequentialGroup()
+                            .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(modelNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(isAvailableCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(25, 25, 25))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createUpdateViewFormLayout.createSequentialGroup()
+                                        .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(modelNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(isAvailableCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25))
+                                    .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(manufacturerNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createUpdateViewFormLayout.createSequentialGroup()
+                                            .addComponent(availableDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(availableMonthCombobox1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(availableYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(serialNumberTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(createUpdateViewFormLayout.createSequentialGroup()
+                                            .addComponent(manufacturedDateComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(manufacturedMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(manufacturedYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(numberOfSeatSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(availableHourTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dotTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(availableMinuteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dotTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(availableSecondTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(manufacturerNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, createUpdateViewFormLayout.createSequentialGroup()
-                                    .addComponent(availableDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(availableMonthCombobox1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(availableYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(serialNumberTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(createUpdateViewFormLayout.createSequentialGroup()
-                                    .addComponent(manufacturedDateComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(manufacturedMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(manufacturedYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(numberOfSeatSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(availableHourTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dotTimeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(availableMinuteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dotTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(availableSecondTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(addressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(serialNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(278, Short.MAX_VALUE))
+                                .addComponent(cityTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(modelNumberTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)))))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         createUpdateViewFormLayout.setVerticalGroup(
             createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,10 +438,10 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(manufacturerNameLabel))
                 .addGap(30, 30, 30)
                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(manufacturedDateComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(manufacturedMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(manufacturedYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(manufacturedDateComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(manufacturedYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(manufacturedTimestampLabel))
                 .addGap(21, 21, 21)
                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -476,16 +452,22 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(serialNumberLabel)
                     .addComponent(serialNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(addressPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(modelNumberLabel)
+                    .addComponent(modelNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cityLabel)
+                    .addComponent(cityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(maintenanceTimestampLabel)
                     .addComponent(maintainenaceDateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(expiryMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(saveChangesButton)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         createUpdateScrollablePanel.setViewportView(createUpdateViewForm);
@@ -535,7 +517,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(createButton))
                 .addGap(18, 18, 18)
                 .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(19, 19, 19)
@@ -610,44 +592,6 @@ public class UberMainFrame extends javax.swing.JFrame {
     private void manufacturedDateComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manufacturedDateComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_manufacturedDateComboBox1ActionPerformed
-
-    private void saveChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveChangesButtonActionPerformed
-        // TODO add your handling code here:
-        ArrayList<Car> carArray = carCatalog.getCars();
-        Car carRecord = new Car();
-        carRecord.setModelName(modelNameTextField.getText().trim());
-        carRecord.setIsAvailable(isAvailableCheckbox.isSelected());
-        carRecord.setAvailabilityTimestamp(LocalDateTime.of((int) availableYearCombobox.getSelectedItem(),
-                ((Month)manufacturedMonthCombobox.getSelectedItem()).getMonthNumber(), 
-                (int)availableDateComboBox.getSelectedItem(), 
-                Integer.parseInt(availableHourTextField.getText().trim()),
-                Integer.parseInt(availableMinuteTextField.getText().trim()), 
-                Integer.parseInt(availableSecondTextField.getText().trim())));
-        carRecord.setManufacturer(manufacturerNameTextField.getText().trim());
-        carRecord.setManufacturedTimestamp(LocalDate.of((int) manufacturedYearCombobox.getSelectedItem(),
-                ((Month)manufacturedMonthCombobox.getSelectedItem()).getMonthNumber(), (int) manufacturedDateComboBox1.getSelectedItem()));
-        carRecord.setNoOfSeats(numberOfSeatSlider.getValue());
-        carRecord.setSerialNumber(serialNumberTextField.getText().trim());
-        
-        carRecord.setGeographicData(new GeographicData(streetAddressTextField.getText().trim(), 
-                cityTextField.getText().trim(),
-                stateTextField.getText().trim(), "USA", zipCodeTextField.getText().trim()));
-        
-        carRecord.setMaintenanceExpiryTimestamp(LocalDate.of((int) expiryYearCombobox.getSelectedItem(),
-                ((Month)expiryMonthCombobox.getSelectedItem()).getMonthNumber(), (int) maintainenaceDateComboBox.getSelectedItem()));
-        
-        
-        carArray.add(carRecord);
-        System.out.println(carRecord);
-
-        carCatalog.setCars(carArray);
-        System.out.println(carCatalog.getTotalCars());
-        
-        populateTableHistory();
-
-        
-       
-    }//GEN-LAST:event_saveChangesButtonActionPerformed
      
     
     private void populateTableHistory() {
@@ -660,9 +604,9 @@ public class UberMainFrame extends javax.swing.JFrame {
                 Integer.toString(carRecord.getNoOfSeats()),
                 carRecord.getManufacturer(),
                 carRecord.getAvailabilityTimestamp(),
-                carRecord.getMaintenanceExpiryTimestamp(),
+                carRecord.getManufacturedTimestamp(),
                 carRecord.getSerialNumber(),
-                carRecord.getGeographicData().getAddress(),
+                carRecord.getGeographicData().getCity(),
                 carRecord.getMaintenanceExpiryTimestamp()                
                 };
             carCatalogTableModel.addRow(rowData);
@@ -720,8 +664,6 @@ public class UberMainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane UberMainTabbedFrame;
-    private javax.swing.JLabel addressLabel;
-    private javax.swing.JPanel addressPanel;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JLabel availabiityTimestampLabel;
     private javax.swing.JLabel availabilityLabel;
@@ -756,18 +698,15 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField manufacturerNameTextField;
     private javax.swing.JLabel modelNameLabel;
     private javax.swing.JTextField modelNameTextField;
+    private javax.swing.JLabel modelNumberLabel;
+    private javax.swing.JTextField modelNumberTextField;
     private javax.swing.JSlider numberOfSeatSlider;
     private javax.swing.JLabel numberOfSeatsLabel;
     private javax.swing.JButton saveChangesButton;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JLabel serialNumberLabel;
     private javax.swing.JTextField serialNumberTextField;
-    private javax.swing.JLabel stateLabel;
-    private javax.swing.JTextField stateTextField;
-    private javax.swing.JTextField streetAddressTextField;
     private javax.swing.JButton updateButton;
     private javax.swing.JButton viewButton;
-    private javax.swing.JLabel zipCodeLabel;
-    private javax.swing.JTextField zipCodeTextField;
     // End of variables declaration//GEN-END:variables
 }
