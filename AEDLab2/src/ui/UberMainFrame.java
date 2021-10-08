@@ -22,6 +22,8 @@ import model.Month;
 public class UberMainFrame extends javax.swing.JFrame {
     CarCatalog carCatalog;
     DefaultTableModel carCatalogTableModel;
+    DefaultTableModel searchCarCatalogTableModel;
+
 
     /**
      * Creates new form UberMainFrame
@@ -48,6 +50,21 @@ public class UberMainFrame extends javax.swing.JFrame {
         carCatalogTableModel.addColumn("Serial Number");
         carCatalogTableModel.addColumn("Location");
         carCatalogTableModel.addColumn("Maintenance Expiry");
+        
+        
+        searchCarCatalogTableModel = new DefaultTableModel();
+        searchCarCatalogTableModel.addColumn("Model Name");
+        searchCarCatalogTableModel.addColumn("Availability");
+        searchCarCatalogTableModel.addColumn("Number of Seats");
+        searchCarCatalogTableModel.addColumn("Manufacturer");
+
+        searchCarCatalogTableModel.addColumn("Availability Time");
+        searchCarCatalogTableModel.addColumn("Manufactured Timestamp");
+        searchCarCatalogTableModel.addColumn("Serial Number");
+        searchCarCatalogTableModel.addColumn("Location");
+        searchCarCatalogTableModel.addColumn("Maintenance Expiry");
+      
+        
     }
     
     private void loadMonthModel() {       
@@ -174,6 +191,11 @@ public class UberMainFrame extends javax.swing.JFrame {
         carCatalogHeaderLabel1 = new javax.swing.JLabel();
         carCatalogTableLabel = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
+        searchHeaderLabel = new javax.swing.JLabel();
+        propertyComboBox = new javax.swing.JComboBox<>();
+        propertyValueTextField = new javax.swing.JTextField();
+        searchCarCatalogScrollPanel = new javax.swing.JScrollPane();
+        searchCarCatalogTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -413,7 +435,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                             .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(cityTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(modelNumberTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)))))
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addContainerGap(257, Short.MAX_VALUE))
         );
         createUpdateViewFormLayout.setVerticalGroup(
             createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -514,7 +536,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(carCatalogHeaderLabel1)
-                    .addContainerGap(1156, Short.MAX_VALUE)))
+                    .addContainerGap(1177, Short.MAX_VALUE)))
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -542,15 +564,48 @@ public class UberMainFrame extends javax.swing.JFrame {
 
         UberMainTabbedFrame.addTab("Admin", adminPanel);
 
+        searchHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        searchHeaderLabel.setText("Select property to filter out cars..");
+
+        propertyValueTextField.setText(" ");
+
+        searchCarCatalogTable.setForeground(new java.awt.Color(0, 0, 102));
+        searchCarCatalogTable.setModel(carCatalogTableModel);
+        searchCarCatalogScrollPanel.setViewportView(searchCarCatalogTable);
+        searchCarCatalogTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1304, Short.MAX_VALUE)
+            .addGroup(searchPanelLayout.createSequentialGroup()
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addGap(312, 312, 312)
+                                .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addGap(353, 353, 353)
+                                .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 611, Short.MAX_VALUE))
+                    .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1124, Short.MAX_VALUE)
+            .addGroup(searchPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(searchHeaderLabel)
+                .addGap(18, 18, 18)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(811, Short.MAX_VALUE))
         );
 
         UberMainTabbedFrame.addTab("Search", searchPanel);
@@ -760,7 +815,12 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField modelNumberTextField;
     private javax.swing.JSlider numberOfSeatSlider;
     private javax.swing.JLabel numberOfSeatsLabel;
+    private javax.swing.JComboBox<String> propertyComboBox;
+    private javax.swing.JTextField propertyValueTextField;
     private javax.swing.JButton saveChangesButton;
+    private javax.swing.JScrollPane searchCarCatalogScrollPanel;
+    private javax.swing.JTable searchCarCatalogTable;
+    private javax.swing.JLabel searchHeaderLabel;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JLabel serialNumberLabel;
     private javax.swing.JTextField serialNumberTextField;
