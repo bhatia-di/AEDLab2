@@ -41,8 +41,8 @@ public class Car {
         this.isAvailable = isAvailable;
     }
 
-    public LocalDateTime getAvailabilityTimestamp() {
-        return availabilityTimestamp;
+    public String getAvailabilityTimestamp() {
+        return availabilityTimestamp.toString();
     }
 
     public void setAvailabilityTimestamp(LocalDateTime availabilityTimestamp) {
@@ -57,8 +57,8 @@ public class Car {
         this.manufacturer = manufacturer;
     }
 
-    public LocalDate getManufacturedTimestamp() {
-        return manufacturedTimestamp;
+    public String getManufacturedTimestamp() {
+        return manufacturedTimestamp.toString();
     }
 
     public void setManufacturedTimestamp(LocalDate manufacturedTimestamp) {
@@ -97,8 +97,8 @@ public class Car {
         this.geographicData = geographicData;
     }
 
-    public LocalDate getMaintenanceExpiryTimestamp() {
-        return maintenanceExpiryTimestamp;
+    public String getMaintenanceExpiryTimestamp() {
+        return maintenanceExpiryTimestamp.toString();
     }
 
     public void setMaintenanceExpiryTimestamp(LocalDate maintenanceExpiryTimestamp) {

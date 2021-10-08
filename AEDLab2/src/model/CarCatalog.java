@@ -17,7 +17,7 @@ public class CarCatalog {
     private LocalDateTime lastUpdatedTimestamp;
     
     public CarCatalog() {
-        cars = new ArrayList<Car>();
+        cars = new ArrayList<Car>()  ;
     }
     
  
@@ -37,6 +37,13 @@ public class CarCatalog {
 
     public void setLastUpdatedTimestamp(LocalDateTime lastUpdatedTimestamp) {
         this.lastUpdatedTimestamp = lastUpdatedTimestamp;
+    }
+    
+    
+    public int getTotalCars() {
+        
+        return getCars().size();
+    
     }
     
     

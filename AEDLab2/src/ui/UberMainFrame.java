@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 import model.Car;
 import model.CarCatalog;
 import model.GeographicData;
@@ -20,19 +21,35 @@ import model.Month;
  */
 public class UberMainFrame extends javax.swing.JFrame {
     CarCatalog carCatalog;
+    DefaultTableModel carCatalogTableModel;
 
     /**
      * Creates new form UberMainFrame
      */
     public UberMainFrame() {
         this.carCatalog = new CarCatalog();
+        initTableModel();
         initComponents();
         loadMonthModel();
         
         
     }
     
-    private void loadMonthModel() {
+    private void initTableModel() {
+        carCatalogTableModel = new DefaultTableModel();
+        carCatalogTableModel.addColumn("Model Name");
+        carCatalogTableModel.addColumn("Availability");
+        carCatalogTableModel.addColumn("Number of Seats");
+        carCatalogTableModel.addColumn("Manufacturer");
+
+        carCatalogTableModel.addColumn("Availability Time");
+        carCatalogTableModel.addColumn("Manufactured Timestamp");
+        carCatalogTableModel.addColumn("Serial Number");
+        carCatalogTableModel.addColumn("Location");
+        carCatalogTableModel.addColumn("Maintenance Expiry");
+    }
+    
+    private void loadMonthModel() {       
     
         DefaultComboBoxModel monthCombBoxModel = new DefaultComboBoxModel();
         monthCombBoxModel.addElement(new Month(1, "January"));
@@ -51,8 +68,39 @@ public class UberMainFrame extends javax.swing.JFrame {
                 
 
         availableMonthCombobox1.setModel(monthCombBoxModel);
-        manufacturedMonthCombobox.setModel(monthCombBoxModel);
-        expiryMonthCombobox.setModel(monthCombBoxModel);
+        
+        DefaultComboBoxModel manufacturedMonthCombBoxModel = new DefaultComboBoxModel();
+        manufacturedMonthCombBoxModel.addElement(new Month(1, "January"));
+        manufacturedMonthCombBoxModel.addElement(new Month(2, "Feburay"));
+        manufacturedMonthCombBoxModel.addElement(new Month(3, "March"));
+        manufacturedMonthCombBoxModel.addElement(new Month(4, "April"));
+        manufacturedMonthCombBoxModel.addElement(new Month(5, "May"));
+        manufacturedMonthCombBoxModel.addElement(new Month(6, "June"));
+        manufacturedMonthCombBoxModel.addElement(new Month(7, "July"));
+        manufacturedMonthCombBoxModel.addElement(new Month(8, "August"));
+        manufacturedMonthCombBoxModel.addElement(new Month(9, "September"));
+        manufacturedMonthCombBoxModel.addElement(new Month(10, "October"));
+        manufacturedMonthCombBoxModel.addElement(new Month(11, "November"));
+        manufacturedMonthCombBoxModel.addElement(new Month(12, "December"));
+        
+        
+        manufacturedMonthCombobox.setModel(manufacturedMonthCombBoxModel);
+        
+        DefaultComboBoxModel expiryMonthComboModel = new DefaultComboBoxModel();
+        expiryMonthComboModel.addElement(new Month(1, "January"));
+        expiryMonthComboModel.addElement(new Month(2, "Feburay"));
+        expiryMonthComboModel.addElement(new Month(3, "March"));
+        expiryMonthComboModel.addElement(new Month(4, "April"));
+        expiryMonthComboModel.addElement(new Month(5, "May"));
+        expiryMonthComboModel.addElement(new Month(6, "June"));
+        expiryMonthComboModel.addElement(new Month(7, "July"));
+        expiryMonthComboModel.addElement(new Month(8, "August"));
+        expiryMonthComboModel.addElement(new Month(9, "September"));
+        expiryMonthComboModel.addElement(new Month(10, "October"));
+        expiryMonthComboModel.addElement(new Month(11, "November"));
+        expiryMonthComboModel.addElement(new Month(12, "December"));
+        
+        expiryMonthCombobox.setModel(expiryMonthComboModel);
         
         
         for(int index = 1; index<32; index++) {
@@ -140,26 +188,10 @@ public class UberMainFrame extends javax.swing.JFrame {
         adminPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         carCatalogTable.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        carCatalogTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Model Name", "Availabilty", "Available time", "Manufacturer Name", "Manufacturer time", "Number of seats", "Serial Number", "Address", "Maintenace Expiry Timestamp"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        carCatalogTable.setModel(carCatalogTableModel);
+        carCatalogTable.setColumnSelectionAllowed(true);
         carCatalogScrollPane.setViewportView(carCatalogTable);
+        carCatalogTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         formHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         formHeaderLabel.setForeground(new java.awt.Color(0, 0, 102));
@@ -566,6 +598,13 @@ public class UberMainFrame extends javax.swing.JFrame {
 
     private void isAvailableCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isAvailableCheckboxActionPerformed
         // TODO add your handling code here:
+            availableDateComboBox.setEnabled(!isAvailableCheckbox.isSelected());    
+            availableMonthCombobox1.setEnabled(!isAvailableCheckbox.isSelected());
+            availableYearCombobox.setEnabled(!isAvailableCheckbox.isSelected());
+            availableHourTextField.setEnabled(!isAvailableCheckbox.isSelected());
+            availableMinuteTextField.setEnabled(!isAvailableCheckbox.isSelected());
+            availableSecondTextField.setEnabled(!isAvailableCheckbox.isSelected());
+        
     }//GEN-LAST:event_isAvailableCheckboxActionPerformed
 
     private void manufacturedDateComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manufacturedDateComboBox1ActionPerformed
@@ -602,10 +641,36 @@ public class UberMainFrame extends javax.swing.JFrame {
         System.out.println(carRecord);
 
         carCatalog.setCars(carArray);
+        System.out.println(carCatalog.getTotalCars());
+        
+        populateTableHistory();
+
         
        
     }//GEN-LAST:event_saveChangesButtonActionPerformed
+     
+    
+    private void populateTableHistory() {
+        
+        
+        for(Car carRecord: carCatalog.getCars()) {
+            String[] rowData = {
+                carRecord.getModelName(), 
+                Boolean.toString(carRecord.isIsAvailable()), 
+                Integer.toString(carRecord.getNoOfSeats()),
+                carRecord.getManufacturer(),
+                carRecord.getAvailabilityTimestamp(),
+                carRecord.getMaintenanceExpiryTimestamp(),
+                carRecord.getSerialNumber(),
+                carRecord.getGeographicData().getAddress(),
+                carRecord.getMaintenanceExpiryTimestamp()                
+                };
+            carCatalogTableModel.addRow(rowData);
+                                                   
+        
+      }
 
+    }                                             
     private void availableMonthCombobox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availableMonthCombobox1ActionPerformed
         // TODO add your handling code here:
         
