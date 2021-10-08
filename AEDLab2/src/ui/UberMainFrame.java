@@ -629,7 +629,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         
       }
         
-       carCatalogTableLabel.setText("Total number of cars: " + carCatalog.getTotalCars() + "| Last updated timestamp: " + carCatalog.getLastUpdatedTimestamp().toString());
+       carCatalogTableLabel.setText("Total number of cars: " + carCatalog.getTotalCars() + "   | Last updated timestamp: " + carCatalog.getLastUpdatedTimestamp().toString());
 
     }                                             
     private void availableMonthCombobox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availableMonthCombobox1ActionPerformed
