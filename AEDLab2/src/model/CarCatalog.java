@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class CarCatalog {
     private ArrayList<Car> cars;
-    private LocalDateTime lastUpdatedTimestamp;
+    private LocalDateTime lastUpdatedTimestamp = LocalDateTime.now();
     
     public CarCatalog() {
         cars = new ArrayList<Car>();
@@ -101,8 +101,8 @@ public class CarCatalog {
         setLastUpdatedTimestamp(LocalDateTime.now());
     }
 
-    public LocalDateTime getLastUpdatedTimestamp() {
-        return lastUpdatedTimestamp;
+    public String getLastUpdatedTimestamp() {
+        return lastUpdatedTimestamp.toString();
     }
 
     public void setLastUpdatedTimestamp(LocalDateTime lastUpdatedTimestamp) {
