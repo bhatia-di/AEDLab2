@@ -741,19 +741,22 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="312" max="-2" attributes="0"/>
-                                      <Component id="propertyComboBox" min="-2" pref="132" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="propertyValueTextField" min="-2" pref="252" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
                                       <Component id="searchHeaderLabel" min="-2" pref="296" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="propertyComboBox" min="-2" pref="214" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="propertyValueTextField" min="-2" pref="318" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="0" pref="611" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="545" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="searchCarCatalogScrollPanel" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="searchCarCatalogScrollPanel" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -765,13 +768,13 @@
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="searchHeaderLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="propertyComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="propertyValueTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="propertyComboBox" pref="70" max="32767" attributes="0"/>
+                          <Component id="propertyValueTextField" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="searchCarCatalogScrollPanel" min="-2" pref="274" max="-2" attributes="0"/>
-                      <EmptySpace pref="740" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="searchCarCatalogScrollPanel" min="-2" pref="354" max="-2" attributes="0"/>
+                      <EmptySpace pref="612" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
