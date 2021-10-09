@@ -233,8 +233,10 @@ public class UberMainFrame extends javax.swing.JFrame {
         adminPanel.setAutoscrolls(true);
         adminPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        carCatalogTable.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
         carCatalogTable.setForeground(new java.awt.Color(0, 0, 102));
         carCatalogTable.setModel(carCatalogTableModel);
+        carCatalogTable.setRowHeight(40);
         carCatalogScrollPane.setViewportView(carCatalogTable);
         carCatalogTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -242,6 +244,8 @@ public class UberMainFrame extends javax.swing.JFrame {
         formHeaderLabel.setForeground(new java.awt.Color(0, 0, 102));
         formHeaderLabel.setText(" ");
 
+        deleteButton.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        deleteButton.setForeground(new java.awt.Color(0, 0, 102));
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +253,8 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        updateButton.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        updateButton.setForeground(new java.awt.Color(0, 0, 102));
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,6 +262,8 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        viewButton.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        viewButton.setForeground(new java.awt.Color(0, 0, 102));
         viewButton.setText("View ");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,6 +271,8 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        createButton.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        createButton.setForeground(new java.awt.Color(0, 0, 102));
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -541,6 +551,7 @@ public class UberMainFrame extends javax.swing.JFrame {
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1325, Short.MAX_VALUE)
             .addGroup(adminPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(createButton)
@@ -573,11 +584,11 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addComponent(carCatalogTableLabel)
                 .addGap(18, 18, 18)
                 .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteButton)
                     .addComponent(updateButton)
                     .addComponent(viewButton)
-                    .addComponent(createButton))
+                    .addComponent(createButton)
+                    .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(52, Short.MAX_VALUE))
@@ -605,8 +616,10 @@ public class UberMainFrame extends javax.swing.JFrame {
         propertyValueTextField.setForeground(new java.awt.Color(0, 0, 102));
         propertyValueTextField.setText(" ");
 
+        searchCarCatalogTable.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
         searchCarCatalogTable.setForeground(new java.awt.Color(0, 0, 102));
         searchCarCatalogTable.setModel(searchCarCatalogTableModel);
+        searchCarCatalogTable.setRowHeight(40);
         searchCarCatalogScrollPanel.setViewportView(searchCarCatalogTable);
         searchCarCatalogTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -670,11 +683,11 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addComponent(searchHeaderLabel)
                 .addGap(18, 18, 18)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(resetTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(propertyValueTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addComponent(carListSearchButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(propertyComboBox)))
+                    .addComponent(resetTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(carListSearchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(propertyComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addComponent(propertyValueTextField)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(helpTextLabel)
                 .addGap(26, 26, 26)
