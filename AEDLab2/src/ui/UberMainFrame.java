@@ -48,11 +48,13 @@ public class UberMainFrame extends javax.swing.JFrame {
         searchComboModel.addElement(new CarProperties("isAvailable", "Availability"));
         searchComboModel.addElement(new CarProperties("availabilityTimestamp", "Available Timestamp"));
         searchComboModel.addElement(new CarProperties("manufacturer", "Manufacturer"));
-        searchComboModel.addElement(new CarProperties("manufacturedTimestamp", "Manufactured Year"));
+        searchComboModel.addElement(new CarProperties("manufacturedTimestamp", "Manufactured Year (YYYY)"));
         searchComboModel.addElement(new CarProperties("noOfSeats", "Number of seats"));
+        searchComboModel.addElement(new CarProperties("modelNumber", "Model Number"));
+
         searchComboModel.addElement(new CarProperties("serialNumber", "Serial Number"));
         searchComboModel.addElement(new CarProperties("city", "City"));
-        searchComboModel.addElement(new CarProperties("maintenanceExpiry", "Maintenance Expiry"));
+        searchComboModel.addElement(new CarProperties("maintenanceExpiry", "Maintenance Expiry (MM:YYYY)"));
 
        
         propertyComboBox.setModel(searchComboModel);     
@@ -646,17 +648,17 @@ public class UberMainFrame extends javax.swing.JFrame {
                         .addGap(481, 481, 481)
                         .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(searchPanelLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(helpTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(searchPanelLayout.createSequentialGroup()
-                                .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(carListSearchButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(resetTableButton)))))
+                                .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(carListSearchButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(resetTableButton)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
@@ -846,15 +848,17 @@ public class UberMainFrame extends javax.swing.JFrame {
        System.out.println(propertyLabel + " ===  " + propertyName + " ==== " + filterPropertyValue);
        helpTextLabel.setText("");
        switch (propertyName) {
-            case "isAvailable": helpTextLabel.setText("Acceptable values are: true/false. Any other value would result in invalid filters.");
-            case "modelName": helpTextLabel.setText("Acceptable values: X1, X2 etc.");
-            case "manufacturer": helpTextLabel.setText("Acceptable values: BMW, Tesla etc.");
-            case "manufacturedTimestamp": helpTextLabel.setText("Filter based in manufacture year. Eg. 2013, 2015");
-            case "noOfSeats": helpTextLabel.setText("Eg =4 or less than 8 and greater than 7 or greater than 4 or less than 8");
-            case "modelNumber": helpTextLabel.setText("Filter based on model number.");
-            case "geographicData": helpTextLabel.setText("Filter based on city.");
-            case "maintenanceExpiryTimestamp": helpTextLabel.setText("Filter based on expiry");
-           
+            case "isAvailable": helpTextLabel.setText("Acceptable values are: true/false. Any other value would result in invalid filters."); break;
+            case "modelName": helpTextLabel.setText("Acceptable values: X1, X2 etc.");break;
+            case "manufacturer": helpTextLabel.setText("Acceptable values: BMW, Tesla etc.");break;
+            case "manufacturedTimestamp": helpTextLabel.setText("Filter based in manufacture year. Eg. 2013, 2015");break;
+            case "noOfSeats": helpTextLabel.setText("Eg =4 or less than 8 and greater than 7 or greater than 4 or less than 8");break;
+            case "modelNumber": helpTextLabel.setText("Filter based on model number.");break;
+            case "serialNumber": helpTextLabel.setText("Filter based on model number.");break;
+            case "city": helpTextLabel.setText("Filter based on city.");break;
+            case "maintenanceExpiry": helpTextLabel.setText("Filter based on expiry");break;
+            case "availabilityTimestamp": helpTextLabel.setText("Filter based on expiry");break;
+
            
       }
        
