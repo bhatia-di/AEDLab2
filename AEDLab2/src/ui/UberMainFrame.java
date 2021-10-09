@@ -15,6 +15,7 @@ import model.CarCatalog;
 import model.CarProperties;
 import model.GeographicData;
 import model.Month;
+import util.Utility;
 
 /**
  *
@@ -218,6 +219,8 @@ public class UberMainFrame extends javax.swing.JFrame {
         searchCarCatalogTable = new javax.swing.JTable();
         summarySearchTabPanel = new javax.swing.JLabel();
         carListSearchButton = new javax.swing.JButton();
+        helpTextLabel = new javax.swing.JLabel();
+        resetTableButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -611,6 +614,22 @@ public class UberMainFrame extends javax.swing.JFrame {
         summarySearchTabPanel.setText(" ");
 
         carListSearchButton.setText("Search");
+        carListSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carListSearchButtonActionPerformed(evt);
+            }
+        });
+
+        helpTextLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        helpTextLabel.setForeground(new java.awt.Color(0, 0, 102));
+        helpTextLabel.setText(" ");
+
+        resetTableButton.setText("Reset");
+        resetTableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetTableButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
@@ -624,17 +643,20 @@ public class UberMainFrame extends javax.swing.JFrame {
                             .addComponent(summarySearchTabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(searchPanelLayout.createSequentialGroup()
-                        .addGap(358, 358, 358)
+                        .addGap(481, 481, 481)
+                        .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addGap(250, 250, 250)
                         .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(searchPanelLayout.createSequentialGroup()
                                 .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(carListSearchButton))
-                            .addGroup(searchPanelLayout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(carListSearchButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resetTableButton)))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
@@ -645,13 +667,17 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(searchHeaderLabel)
                 .addGap(18, 18, 18)
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(propertyValueTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(carListSearchButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(propertyComboBox))
-                .addGap(29, 29, 29)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(resetTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(propertyValueTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addComponent(carListSearchButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(propertyComboBox)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(helpTextLabel)
+                .addGap(26, 26, 26)
                 .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addContainerGap(399, Short.MAX_VALUE))
         );
 
         UberMainTabbedFrame.addTab("Search", searchPanel);
@@ -738,6 +764,7 @@ public class UberMainFrame extends javax.swing.JFrame {
     
     
     private void populateSearchTableHistory(ArrayList<Car> carList) {
+        searchCarCatalogTableModel.setRowCount(0);
         
         
         for(Car carRecord: carList) {
@@ -817,6 +844,19 @@ public class UberMainFrame extends javax.swing.JFrame {
        String filterPropertyValue = propertyValueTextField.getText();
        
        System.out.println(propertyLabel + " ===  " + propertyName + " ==== " + filterPropertyValue);
+       helpTextLabel.setText("");
+       switch (propertyName) {
+            case "isAvailable": helpTextLabel.setText("Acceptable values are: true/false. Any other value would result in invalid filters.");
+            case "modelName": helpTextLabel.setText("Acceptable values: X1, X2 etc.");
+            case "manufacturer": helpTextLabel.setText("Acceptable values: BMW, Tesla etc.");
+            case "manufacturedTimestamp": helpTextLabel.setText("Filter based in manufacture year. Eg. 2013, 2015");
+            case "noOfSeats": helpTextLabel.setText("Eg =4 or less than 8 and greater than 7 or greater than 4 or less than 8");
+            case "modelNumber": helpTextLabel.setText("Filter based on model number.");
+            case "geographicData": helpTextLabel.setText("Filter based on city.");
+            case "maintenanceExpiryTimestamp": helpTextLabel.setText("Filter based on expiry");
+           
+           
+      }
        
        
        
@@ -825,6 +865,28 @@ public class UberMainFrame extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_propertyComboBoxActionPerformed
+
+    private void carListSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carListSearchButtonActionPerformed
+        // TODO add your handling code here:
+        
+       String propertyLabel = ((CarProperties)propertyComboBox.getSelectedItem()).getCarPropertyLabel();
+       String propertyName = ((CarProperties)propertyComboBox.getSelectedItem()).getCarPropertyName();
+       
+       String filterPropertyValue = propertyValueTextField.getText();
+       
+       System.out.println(propertyLabel + " ===  " + propertyName + " ==== " + filterPropertyValue);
+       
+       ArrayList<Car> filteredList = new Utility().filterTable(propertyName, filterPropertyValue, carCatalog.getCars());
+       
+       populateSearchTableHistory(filteredList);
+       
+       
+    }//GEN-LAST:event_carListSearchButtonActionPerformed
+
+    private void resetTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTableButtonActionPerformed
+        // TODO add your handling code here:
+        populateSearchTableHistory(carCatalog.getCars());
+    }//GEN-LAST:event_resetTableButtonActionPerformed
     
     private void updateAdminHeader(String text) {
         formHeaderLabel.setText(text);
@@ -892,6 +954,7 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> expiryMonthCombobox;
     private javax.swing.JComboBox<Integer> expiryYearCombobox;
     private javax.swing.JLabel formHeaderLabel;
+    private javax.swing.JLabel helpTextLabel;
     private javax.swing.JCheckBox isAvailableCheckbox;
     private javax.swing.JComboBox<Integer> maintainenaceDateComboBox;
     private javax.swing.JLabel maintenanceTimestampLabel;
@@ -909,6 +972,7 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel numberOfSeatsLabel;
     private javax.swing.JComboBox<String> propertyComboBox;
     private javax.swing.JTextField propertyValueTextField;
+    private javax.swing.JButton resetTableButton;
     private javax.swing.JButton saveChangesButton;
     private javax.swing.JScrollPane searchCarCatalogScrollPanel;
     private javax.swing.JTable searchCarCatalogTable;
