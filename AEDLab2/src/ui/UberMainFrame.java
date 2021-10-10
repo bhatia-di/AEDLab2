@@ -46,7 +46,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         DefaultComboBoxModel searchComboModel = new DefaultComboBoxModel();
         searchComboModel.addElement(new CarProperties("modelName", "Model Name"));
         searchComboModel.addElement(new CarProperties("isAvailable", "Availability"));
-        searchComboModel.addElement(new CarProperties("availabilityTimestamp", "Next Available cars"));
+        //searchComboModel.addElement(new CarProperties("availabilityTimestamp", "Next Available cars"));
         searchComboModel.addElement(new CarProperties("manufacturer", "Manufacturer"));
         searchComboModel.addElement(new CarProperties("manufacturedTimestamp", "Manufactured Year (YYYY)"));
         searchComboModel.addElement(new CarProperties("noOfSeats", "Number of seats"));
@@ -57,7 +57,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         searchComboModel.addElement(new CarProperties("maintenanceExpiry", "Expired"));
 
        
-        propertyComboBox.setModel(searchComboModel);     
+        propertyComboBox.setModel(searchComboModel);
     }
     
     
@@ -219,10 +219,20 @@ public class UberMainFrame extends javax.swing.JFrame {
         propertyValueTextField = new javax.swing.JTextField();
         searchCarCatalogScrollPanel = new javax.swing.JScrollPane();
         searchCarCatalogTable = new javax.swing.JTable();
-        summarySearchTabPanel = new javax.swing.JLabel();
         carListSearchButton = new javax.swing.JButton();
         helpTextLabel = new javax.swing.JLabel();
         resetTableButton = new javax.swing.JButton();
+        summaryLabel = new javax.swing.JLabel();
+        availableCarLabel = new javax.swing.JLabel();
+        unavailableCarLabel = new javax.swing.JLabel();
+        manufacturersList = new javax.swing.JLabel();
+        lastUPdatedTimestampLabel = new javax.swing.JLabel();
+        availableCarCountLabel = new javax.swing.JLabel();
+        unavailableCarCountLabel = new javax.swing.JLabel();
+        lastUpdatedTimeStampValueLabel = new javax.swing.JLabel();
+        manufacturerListValueLabel = new javax.swing.JLabel();
+        totalCarsLabel = new javax.swing.JLabel();
+        totalCarsValueLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -471,7 +481,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                             .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(cityTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(modelNumberTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)))))
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(914, Short.MAX_VALUE))
         );
         createUpdateViewFormLayout.setVerticalGroup(
             createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,7 +559,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         adminPanel.setLayout(adminPanelLayout);
         adminPanelLayout.setHorizontalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1325, Short.MAX_VALUE)
+            .addComponent(createUpdateScrollablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1982, Short.MAX_VALUE)
             .addGroup(adminPanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(formHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -573,7 +583,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(carCatalogHeaderLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1153, Short.MAX_VALUE)))
+                    .addContainerGap(1810, Short.MAX_VALUE)))
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -601,6 +611,8 @@ public class UberMainFrame extends javax.swing.JFrame {
 
         UberMainTabbedFrame.addTab("Admin", adminPanel);
 
+        searchPanel.setForeground(new java.awt.Color(0, 0, 102));
+
         searchHeaderLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         searchHeaderLabel.setText("Select property to filter out cars");
 
@@ -623,11 +635,6 @@ public class UberMainFrame extends javax.swing.JFrame {
         searchCarCatalogScrollPanel.setViewportView(searchCarCatalogTable);
         searchCarCatalogTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        summarySearchTabPanel.setFont(new java.awt.Font("Segoe UI", 3, 16)); // NOI18N
-        summarySearchTabPanel.setForeground(new java.awt.Color(0, 0, 102));
-        summarySearchTabPanel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        summarySearchTabPanel.setText(" ");
-
         carListSearchButton.setText("Search");
         carListSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -646,6 +653,59 @@ public class UberMainFrame extends javax.swing.JFrame {
             }
         });
 
+        summaryLabel.setForeground(new java.awt.Color(0, 0, 102));
+        summaryLabel.setText("Summary");
+
+        availableCarLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        availableCarLabel.setForeground(new java.awt.Color(0, 0, 102));
+        availableCarLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        availableCarLabel.setText("Count of Available Cars:");
+
+        unavailableCarLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        unavailableCarLabel.setForeground(new java.awt.Color(0, 0, 102));
+        unavailableCarLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        unavailableCarLabel.setText("Count of Unavailable Cars:");
+
+        manufacturersList.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        manufacturersList.setForeground(new java.awt.Color(0, 0, 102));
+        manufacturersList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        manufacturersList.setText("List of manufacturers: ");
+
+        lastUPdatedTimestampLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        lastUPdatedTimestampLabel.setForeground(new java.awt.Color(0, 0, 102));
+        lastUPdatedTimestampLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lastUPdatedTimestampLabel.setText("Last Updated Timestamp for Car Catalog: ");
+
+        availableCarCountLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        availableCarCountLabel.setForeground(new java.awt.Color(0, 0, 102));
+        availableCarCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        availableCarCountLabel.setText(" ");
+
+        unavailableCarCountLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        unavailableCarCountLabel.setForeground(new java.awt.Color(0, 0, 102));
+        unavailableCarCountLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        unavailableCarCountLabel.setText(" ");
+
+        lastUpdatedTimeStampValueLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        lastUpdatedTimeStampValueLabel.setForeground(new java.awt.Color(0, 0, 102));
+        lastUpdatedTimeStampValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lastUpdatedTimeStampValueLabel.setText(" ");
+
+        manufacturerListValueLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        manufacturerListValueLabel.setForeground(new java.awt.Color(0, 0, 102));
+        manufacturerListValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        manufacturerListValueLabel.setText(" ");
+
+        totalCarsLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        totalCarsLabel.setForeground(new java.awt.Color(0, 0, 102));
+        totalCarsLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        totalCarsLabel.setText(" Total Cars:");
+
+        totalCarsValueLabel.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
+        totalCarsValueLabel.setForeground(new java.awt.Color(0, 0, 102));
+        totalCarsValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        totalCarsValueLabel.setText(" ");
+
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
@@ -653,33 +713,74 @@ public class UberMainFrame extends javax.swing.JFrame {
             .addGroup(searchPanelLayout.createSequentialGroup()
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(searchPanelLayout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addGap(355, 355, 355)
+                                .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(helpTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 668, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(searchPanelLayout.createSequentialGroup()
+                                        .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(carListSearchButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(resetTableButton))))
+                    .addGroup(searchPanelLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(summarySearchTabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(searchPanelLayout.createSequentialGroup()
-                        .addGap(481, 481, 481)
-                        .addComponent(searchHeaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(searchPanelLayout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(helpTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(searchPanelLayout.createSequentialGroup()
-                                .addComponent(propertyComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(propertyValueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(carListSearchButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(resetTableButton)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                                .addComponent(lastUPdatedTimestampLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lastUpdatedTimeStampValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(totalCarsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(summaryLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(totalCarsValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addComponent(unavailableCarLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(unavailableCarCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(availableCarLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(availableCarCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(searchPanelLayout.createSequentialGroup()
+                                .addComponent(manufacturersList, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(manufacturerListValueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(680, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(summarySearchTabPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(summaryLabel)
                 .addGap(18, 18, 18)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalCarsLabel)
+                    .addComponent(totalCarsValueLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(unavailableCarLabel)
+                    .addComponent(unavailableCarCountLabel)
+                    .addComponent(availableCarLabel)
+                    .addComponent(availableCarCountLabel))
+                .addGap(18, 18, 18)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(manufacturersList)
+                    .addComponent(manufacturerListValueLabel))
+                .addGap(18, 18, 18)
+                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastUPdatedTimestampLabel)
+                    .addComponent(lastUpdatedTimeStampValueLabel))
+                .addGap(29, 29, 29)
                 .addComponent(searchHeaderLabel)
                 .addGap(18, 18, 18)
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -688,11 +789,11 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(propertyComboBox)
                         .addComponent(propertyValueTextField)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(helpTextLabel)
-                .addGap(26, 26, 26)
+                .addGap(40, 40, 40)
                 .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(415, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
         UberMainTabbedFrame.addTab("Search", searchPanel);
@@ -772,8 +873,10 @@ public class UberMainFrame extends javax.swing.JFrame {
       }
         
        carCatalogTableLabel.setText("Total number of cars: " + carCatalog.getTotalCars() + "   | Last updated timestamp: " + carCatalog.getLastUpdatedTimestamp().toString());
-       summarySearchTabPanel.setText("Total number of cars in the catalog: " + carCatalog.getTotalCars() + "   | Last updated timestamp: " + carCatalog.getLastUpdatedTimestamp().toString());
-    
+       availableCarCountLabel.setText( Integer.toString(carCatalog.getAvailableNumberOfCars()));
+       unavailableCarCountLabel.setText(Integer.toString(carCatalog.getUnAvailableNumberOfCars()));
+       manufacturerListValueLabel.setText(carCatalog.getListOfManufacturer());
+       lastUpdatedTimeStampValueLabel.setText(carCatalog.getLastUpdatedTimestamp());
     
     }    
     
@@ -947,6 +1050,8 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel adminPanel;
     private javax.swing.JLabel availabiityTimestampLabel;
     private javax.swing.JLabel availabilityLabel;
+    private javax.swing.JLabel availableCarCountLabel;
+    private javax.swing.JLabel availableCarLabel;
     private javax.swing.JComboBox<Integer> availableDateComboBox;
     private javax.swing.JTextField availableHourTextField;
     private javax.swing.JTextField availableMinuteTextField;
@@ -971,14 +1076,18 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel formHeaderLabel;
     private javax.swing.JLabel helpTextLabel;
     private javax.swing.JCheckBox isAvailableCheckbox;
+    private javax.swing.JLabel lastUPdatedTimestampLabel;
+    private javax.swing.JLabel lastUpdatedTimeStampValueLabel;
     private javax.swing.JComboBox<Integer> maintainenaceDateComboBox;
     private javax.swing.JLabel maintenanceTimestampLabel;
     private javax.swing.JComboBox<Integer> manufacturedDateComboBox1;
     private javax.swing.JComboBox<String> manufacturedMonthCombobox;
     private javax.swing.JLabel manufacturedTimestampLabel;
     private javax.swing.JComboBox<Integer> manufacturedYearCombobox;
+    private javax.swing.JLabel manufacturerListValueLabel;
     private javax.swing.JLabel manufacturerNameLabel;
     private javax.swing.JTextField manufacturerNameTextField;
+    private javax.swing.JLabel manufacturersList;
     private javax.swing.JLabel modelNameLabel;
     private javax.swing.JTextField modelNameTextField;
     private javax.swing.JLabel modelNumberLabel;
@@ -995,7 +1104,11 @@ public class UberMainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel searchPanel;
     private javax.swing.JLabel serialNumberLabel;
     private javax.swing.JTextField serialNumberTextField;
-    private javax.swing.JLabel summarySearchTabPanel;
+    private javax.swing.JLabel summaryLabel;
+    private javax.swing.JLabel totalCarsLabel;
+    private javax.swing.JLabel totalCarsValueLabel;
+    private javax.swing.JLabel unavailableCarCountLabel;
+    private javax.swing.JLabel unavailableCarLabel;
     private javax.swing.JButton updateButton;
     private javax.swing.JButton viewButton;
     // End of variables declaration//GEN-END:variables

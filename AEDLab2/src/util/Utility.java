@@ -26,7 +26,6 @@ public final class Utility {
             case "modelName": filteredList = filterBasedOnModelName(propertyValue, filteredList);break;
             case "manufacturer": filteredList = filterBasedOnManufacturer(propertyValue, filteredList);break;
             case "manufacturedTimestamp": filteredList = filterBasedOnManufacturedTimestamp(propertyValue, filteredList);break;
-            //case "availabilityTimestamp": filteredList = filterBasedOnModelName(propertyValue, filteredList);break;
             case "serialNumber": filteredList = filterBasedOnSerailNumber(propertyValue, filteredList);break;
 
             case "noOfSeats": filteredList = filterBasedOnNoOfSeats(propertyValue, filteredList);break;

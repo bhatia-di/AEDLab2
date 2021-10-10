@@ -9,6 +9,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  *
@@ -116,6 +120,41 @@ public class CarCatalog {
         return getCars().size();
     
     }
+    
+    
+    public int getAvailableNumberOfCars() {
+        ArrayList<Car> availCars = (ArrayList<Car>) cars.stream().filter(car -> car.isIsAvailable() == true)
+                .collect(Collectors.toList());
+        return availCars.size();    
+    }
+    
+    
+    public int getUnAvailableNumberOfCars() {
+        ArrayList<Car> availCars = (ArrayList<Car>) cars.stream().filter(car -> car.isIsAvailable() == false)
+                .collect(Collectors.toList());
+        return availCars.size();    
+    }
+    
+    public String getListOfManufacturer()  {
+        
+        Set<String> manufacturerSet = new HashSet<String>();
+        StringBuffer outputString = new StringBuffer();
+        
+        for(Car carRecord: cars) {
+            manufacturerSet.add(carRecord.getManufacturer());       
+        }
+        Iterator manufacturerSetIterator = manufacturerSet.iterator();
+        while(manufacturerSetIterator.hasNext()) {
+        outputString.append(manufacturerSetIterator.next());
+        if (manufacturerSetIterator.hasNext()) outputString.append(" , ");
+        
+        }
+        
+        
+        return outputString.toString();
+    
+    }
+    
     
     
     
