@@ -25,6 +25,7 @@ public class Car {
     private String modelNumber;
     private GeographicData geographicData;
     private LocalDate maintenanceExpiryTimestamp;  
+    private boolean isExpired;
 
     public Car(String modelName, boolean isAvailable, LocalDateTime availabilityTimestamp, String manufacturer, LocalDate manufacturedTimestamp, int noOfSeats, String serialNumber, String modelNumber, GeographicData geographicData, LocalDate maintenanceExpiryTimestamp) {
         this.modelName = modelName;
@@ -37,6 +38,9 @@ public class Car {
         this.modelNumber = modelNumber;
         this.geographicData = geographicData;
         this.maintenanceExpiryTimestamp = maintenanceExpiryTimestamp;
+        this.isExpired = maintenanceExpiryTimestamp.compareTo(LocalDate.now()) <= 0;
+        
+       
     }
     
     public Car() {
@@ -74,6 +78,11 @@ public class Car {
     public String getManufacturer() {
         return manufacturer;
     }
+    
+    public boolean isExpired() {
+        return isExpired;    
+    }
+        
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
@@ -82,7 +91,10 @@ public class Car {
     public String getManufacturedTimestamp() {
         return manufacturedTimestamp.toString();
     }
-
+  
+    public LocalDate getManufacturedTimestampDate() {
+        return manufacturedTimestamp;
+    }
     public void setManufacturedTimestamp(LocalDate manufacturedTimestamp) {
         this.manufacturedTimestamp = manufacturedTimestamp;
     }
@@ -121,6 +133,10 @@ public class Car {
 
     public String getMaintenanceExpiryTimestamp() {
         return maintenanceExpiryTimestamp.toString();
+    }
+    
+    public LocalDate getMaintenanceExpiryTimestampDate() {
+        return maintenanceExpiryTimestamp;
     }
 
     public void setMaintenanceExpiryTimestamp(LocalDate maintenanceExpiryTimestamp) {

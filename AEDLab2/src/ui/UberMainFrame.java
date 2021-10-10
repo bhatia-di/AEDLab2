@@ -46,7 +46,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         DefaultComboBoxModel searchComboModel = new DefaultComboBoxModel();
         searchComboModel.addElement(new CarProperties("modelName", "Model Name"));
         searchComboModel.addElement(new CarProperties("isAvailable", "Availability"));
-        searchComboModel.addElement(new CarProperties("availabilityTimestamp", "Available Timestamp"));
+        searchComboModel.addElement(new CarProperties("availabilityTimestamp", "Next Available cars"));
         searchComboModel.addElement(new CarProperties("manufacturer", "Manufacturer"));
         searchComboModel.addElement(new CarProperties("manufacturedTimestamp", "Manufactured Year (YYYY)"));
         searchComboModel.addElement(new CarProperties("noOfSeats", "Number of seats"));
@@ -54,7 +54,7 @@ public class UberMainFrame extends javax.swing.JFrame {
 
         searchComboModel.addElement(new CarProperties("serialNumber", "Serial Number"));
         searchComboModel.addElement(new CarProperties("city", "City"));
-        searchComboModel.addElement(new CarProperties("maintenanceExpiry", "Maintenance Expiry (MM:YYYY)"));
+        searchComboModel.addElement(new CarProperties("maintenanceExpiry", "Expired"));
 
        
         propertyComboBox.setModel(searchComboModel);     
@@ -686,13 +686,13 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(resetTableButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(carListSearchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(propertyComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                        .addComponent(propertyComboBox)
                         .addComponent(propertyValueTextField)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(helpTextLabel)
                 .addGap(26, 26, 26)
                 .addComponent(searchCarCatalogScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(415, Short.MAX_VALUE))
         );
 
         UberMainTabbedFrame.addTab("Search", searchPanel);
@@ -855,22 +855,20 @@ public class UberMainFrame extends javax.swing.JFrame {
         
        String propertyLabel = ((CarProperties)propertyComboBox.getSelectedItem()).getCarPropertyLabel();
        String propertyName = ((CarProperties)propertyComboBox.getSelectedItem()).getCarPropertyName();
-       
-       String filterPropertyValue = propertyValueTextField.getText();
-       
-       System.out.println(propertyLabel + " ===  " + propertyName + " ==== " + filterPropertyValue);
+       propertyValueTextField.setText("");
+            
        helpTextLabel.setText("");
        switch (propertyName) {
             case "isAvailable": helpTextLabel.setText("Acceptable values are: true/false. Any other value would result in invalid filters."); break;
             case "modelName": helpTextLabel.setText("Acceptable values: X1, X2 etc.");break;
             case "manufacturer": helpTextLabel.setText("Acceptable values: BMW, Tesla etc.");break;
-            case "manufacturedTimestamp": helpTextLabel.setText("Filter based in manufacture year. Eg. 2013, 2015");break;
-            case "noOfSeats": helpTextLabel.setText("Eg =4 or less than 8 and greater than 7 or greater than 4 or less than 8");break;
+            case "manufacturedTimestamp": helpTextLabel.setText("Filter based in manufactured year. Eg. 2013, 2015");break;
+            case "noOfSeats": helpTextLabel.setText("Eg, =4 expressed as: 4 | greater than 4 and less than 8 expressed as 4,8");break;
             case "modelNumber": helpTextLabel.setText("Filter based on model number.");break;
             case "serialNumber": helpTextLabel.setText("Filter based on model number.");break;
-            case "city": helpTextLabel.setText("Filter based on city.");break;
-            case "maintenanceExpiry": helpTextLabel.setText("Filter based on expiry");break;
-            case "availabilityTimestamp": helpTextLabel.setText("Filter based on expiry");break;
+            case "city": helpTextLabel.setText("Filter based on city.Eg. Boston, Cambridge");break;
+            case "maintenanceExpiry": helpTextLabel.setText("Filter based on maintenance expiry. Eg. MM-YYYY");break;
+            case "availabilityTimestamp": helpTextLabel.setText("Filter based on next available timestamp");break;
 
            
       }

@@ -25,14 +25,14 @@ public final class Utility {
             case "isAvailable": filteredList = filterBasedOnAvailabity(propertyValue, filteredList);break;
             case "modelName": filteredList = filterBasedOnModelName(propertyValue, filteredList);break;
             case "manufacturer": filteredList = filterBasedOnManufacturer(propertyValue, filteredList);break;
-            //case "manufacturedTimestamp": filteredList = filterBasedOnModelName(propertyValue, filteredList);break;
+            case "manufacturedTimestamp": filteredList = filterBasedOnManufacturedTimestamp(propertyValue, filteredList);break;
             //case "availabilityTimestamp": filteredList = filterBasedOnModelName(propertyValue, filteredList);break;
             case "serialNumber": filteredList = filterBasedOnSerailNumber(propertyValue, filteredList);break;
 
-            //case "noOfSeats": filteredList = filterBasedOnModelName(propertyValue, filteredList);break;
+            case "noOfSeats": filteredList = filterBasedOnNoOfSeats(propertyValue, filteredList);break;
             case "modelNumber": filteredList = filterBasedOnModelNumber(propertyValue, filteredList);break;
             case "city": filteredList = filterBasedOnCity(propertyValue, filteredList);break;
-            //case "maintenanceExpiry": filteredList = filterBasedOnModelName(propertyValue, filteredList);break;
+            case "maintenanceExpiry": filteredList = filterBasedOnMaintenanceExpiry(propertyValue, filteredList);break;
         
         
         
@@ -79,5 +79,49 @@ public final class Utility {
                 .collect(Collectors.toList());
         
    }
+        
+        
+    public static ArrayList<Car> filterBasedOnManufacturedTimestamp(String propertyValue, ArrayList<Car> carList) {
+        int year = Integer.parseInt(propertyValue.trim());
+
+        return (ArrayList<Car>) carList.stream().filter(car -> car.getManufacturedTimestampDate().getYear() == year)
+                .collect(Collectors.toList());
+        
+   } 
     
+      public static ArrayList<Car> filterBasedOnMaintenanceExpiry(String propertyValue, ArrayList<Car> carList) {
+        boolean expiredValue = Boolean.parseBoolean(propertyValue.trim());
+        return (ArrayList<Car>) carList.stream().filter(car -> car.isExpired() == expiredValue)
+                .collect(Collectors.toList());
+        
+   }  
+    
+      
+       public static ArrayList<Car> filterBasedOnNoOfSeats(String propertyValue, ArrayList<Car> carList) {
+        String[] input = propertyValue.split(",");
+        int minValue;
+        int maxValue;
+        
+        if (input.length <= 1 ) {
+        minValue = Integer.parseInt(input[0]);
+                return (ArrayList<Car>) carList.stream().filter(car -> car.getNoOfSeats() == minValue)
+                .collect(Collectors.toList());
+
+        } 
+        
+        if (input.length >= 2) {
+        minValue = Integer.parseInt(input[0]);
+
+        maxValue = Integer.parseInt(input[1]);
+                return (ArrayList<Car>) carList.stream().filter(car -> car.getNoOfSeats() >= minValue && car.getNoOfSeats()< maxValue)
+                .collect(Collectors.toList());
+        
+
+        
+        }
+         
+    return carList;
+         
+           
+   }  
 }
