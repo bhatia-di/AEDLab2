@@ -155,6 +155,12 @@ public class CarCatalog {
     
     }
     
+    public Car getCarAtIndex(int index) {
+        
+        return cars.get(index);
+    
+  }
+    
     
     
     

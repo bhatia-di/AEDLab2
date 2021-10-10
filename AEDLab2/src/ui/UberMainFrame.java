@@ -8,6 +8,7 @@ package ui;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Objects;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -156,7 +157,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         }
         
         
-         for(int index = 2000; index<2022; index++) {
+         for(int index = 2000; index<2030; index++) {
              availableYearCombobox.addItem(index);
              manufacturedYearCombobox.addItem(index);
              expiryYearCombobox.addItem(index);
@@ -448,7 +449,7 @@ public class UberMainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(expiryMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(serialNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                         .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -858,22 +859,60 @@ public class UberMainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         updateAdminHeader("Update Car record");
         
-        if(carCatalogTable.getSelectedRow() == -1) {
+        int selectedRowIndex = carCatalogTable.getSelectedRow();
+        
+        if(selectedRowIndex == -1) {
             JOptionPane.showConfirmDialog(null, "No record selected to update the row", "Error!",
                         JOptionPane.DEFAULT_OPTION,
                         JOptionPane.PLAIN_MESSAGE);
+            return;
         }
+        
+        setValuesInForm(selectedRowIndex);
+           
+                
+        
         
         
         
        
 
     }//GEN-LAST:event_updateButtonActionPerformed
-    private void setValuesInForm() {
-    
-    
-    
+    private void setValuesInForm(int selectedRowIndex) {
+        Car carRecord = carCatalog.getCarAtIndex(selectedRowIndex);
+        modelNameTextField.setText(carRecord.getModelName());
+        isAvailableCheckbox.setEnabled(carRecord.isIsAvailable());
+        setAvailableTimestampFormEnableDisable(carRecord.isIsAvailable());
+        if (!carRecord.isIsAvailable()) {
+            
+            availableDateComboBox.setSelectedIndex(carRecord.getAvailabilityTimestampDate().getDayOfMonth()-1);
+            availableMonthCombobox1.setSelectedIndex(carRecord.getAvailabilityTimestampDate().getMonthValue()-1);
+            availableYearCombobox.setSelectedIndex(carRecord.getAvailabilityTimestampDate().getYear()%2000);
+            availableHourTextField.setText(carRecord.getAvailabilityTimestampDate().getHour());
+            availableMinuteTextField.setText(carRecord.getAvailabilityTimestampDate().getMinute());
+            availableSecondTextField.setText(carRecord.getAvailabilityTimestampDate().getSecond());
+          }
+        
+        manufacturerNameTextField.setText(carRecord.getManufacturer());
+        manufacturedDateComboBox1.setSelectedIndex(carRecord.getManufacturedTimestampDate().getDayOfMonth()-1);
+        manufacturedMonthCombobox.setSelectedIndex(carRecord.getManufacturedTimestampDate().getMonthValue()-1);
+        manufacturedYearCombobox.setSelectedIndex(carRecord.getManufacturedTimestampDate().getYear()%2000);
+        numberOfSeatSlider.setValue(carRecord.getNoOfSeats());
+        serialNumberTextField.setText(carRecord.getSerialNumber());
+        modelNumberTextField.setText(carRecord.getSerialNumber());
+        cityTextField.setText(carRecord.getGeographicData().getCity());
+        maintainenaceDateComboBox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getDayOfMonth()-1);
+        expiryMonthCombobox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getMonthValue()-1);
+        System.out.println(carRecord.getMaintenanceExpiryTimestampDate().getYear()%2000);
+        
+        expiryYearCombobox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getYear()%2000);
+        
     }
+      
+        
+        
+           
+    
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         // TODO add your handling code here:
         updateAdminHeader("Create Car record");
@@ -882,15 +921,19 @@ public class UberMainFrame extends javax.swing.JFrame {
 
     private void isAvailableCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isAvailableCheckboxActionPerformed
         // TODO add your handling code here:
-            availableDateComboBox.setEnabled(!isAvailableCheckbox.isSelected());    
-            availableMonthCombobox1.setEnabled(!isAvailableCheckbox.isSelected());
-            availableYearCombobox.setEnabled(!isAvailableCheckbox.isSelected());
-            availableHourTextField.setEnabled(!isAvailableCheckbox.isSelected());
-            availableMinuteTextField.setEnabled(!isAvailableCheckbox.isSelected());
-            availableSecondTextField.setEnabled(!isAvailableCheckbox.isSelected());
+          
+            setAvailableTimestampFormEnableDisable(Objects.isNull(isAvailableCheckbox)? false : isAvailableCheckbox.isSelected());
         
     }//GEN-LAST:event_isAvailableCheckboxActionPerformed
+private void setAvailableTimestampFormEnableDisable(boolean availability) {
 
+            availableDateComboBox.setEnabled(!availability);    
+            availableMonthCombobox1.setEnabled(!availability);
+            availableYearCombobox.setEnabled(!availability);
+            availableHourTextField.setEnabled(!availability);
+            availableMinuteTextField.setEnabled(!availability);
+            availableSecondTextField.setEnabled(!availability);
+}
     private void manufacturedDateComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manufacturedDateComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_manufacturedDateComboBox1ActionPerformed

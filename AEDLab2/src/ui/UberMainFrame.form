@@ -250,7 +250,7 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="expiryMonthCombobox" min="-2" pref="204" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="expiryYearCombobox" min="-2" max="-2" attributes="0"/>
+                                      <Component id="expiryYearCombobox" min="-2" pref="114" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="serialNumberLabel" min="-2" pref="135" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">

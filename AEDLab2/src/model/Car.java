@@ -66,7 +66,12 @@ public class Car {
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
-
+    
+    public LocalDateTime getAvailabilityTimestampDate() {
+        return availabilityTimestamp;
+    
+    }
+    
     public String getAvailabilityTimestamp() {
         return Objects.isNull(availabilityTimestamp) ? "" : availabilityTimestamp.toString();
     }
