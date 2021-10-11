@@ -415,6 +415,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         cityTextField.setForeground(new java.awt.Color(0, 0, 102));
         cityTextField.setText(" ");
 
+        saveChangesButton.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         saveChangesButton.setText("Save");
         saveChangesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,7 +442,7 @@ public class UberMainFrame extends javax.swing.JFrame {
             .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(createUpdateViewFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saveChangesButton)
+                    .addComponent(saveChangesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(createUpdateViewFormLayout.createSequentialGroup()
                         .addComponent(maintenanceTimestampLabel)
                         .addGap(42, 42, 42)
@@ -562,8 +563,8 @@ public class UberMainFrame extends javax.swing.JFrame {
                     .addComponent(expiryMonthCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(expiryYearCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(saveChangesButton)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addComponent(saveChangesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         createUpdateScrollablePanel.setViewportView(createUpdateViewForm);
@@ -846,12 +847,44 @@ public class UberMainFrame extends javax.swing.JFrame {
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
         // TODO add your handling code here:
         updateAdminHeader("Viewing record below");
+        
+        
+        int selectedRowIndex = carCatalogTable.getSelectedRow();
+        
+        if(selectedRowIndex == -1) {
+            JOptionPane.showConfirmDialog(null, "No record selected to view the row", "Error!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.PLAIN_MESSAGE);
+            return;
+        }
+        
+        setValuesInForm(selectedRowIndex);
 
     }//GEN-LAST:event_viewButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-        updateAdminHeader(" ");
+        updateAdminHeader("Deleting selected record.");
+        
+        int selectedRowIndex = carCatalogTable.getSelectedRow();
+        
+        if(selectedRowIndex == -1) {
+            JOptionPane.showConfirmDialog(null, 
+                    "No record selected to delete the row",
+                    "Error!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.PLAIN_MESSAGE);
+            return;
+        }
+
+
+        int response = JOptionPane.showConfirmDialog(null, "Do you want to delete selected record?");
+        if(response == 0) carCatalog.removeCarAtIndex(selectedRowIndex);
+
+        populateTableHistory();
+        populateSearchTableHistory(carCatalog.getCars());
+
+
 
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -881,16 +914,16 @@ public class UberMainFrame extends javax.swing.JFrame {
     private void setValuesInForm(int selectedRowIndex) {
         Car carRecord = carCatalog.getCarAtIndex(selectedRowIndex);
         modelNameTextField.setText(carRecord.getModelName());
-        isAvailableCheckbox.setEnabled(carRecord.isIsAvailable());
+        isAvailableCheckbox.setSelected(carRecord.isIsAvailable());
         setAvailableTimestampFormEnableDisable(carRecord.isIsAvailable());
         if (!carRecord.isIsAvailable()) {
             
             availableDateComboBox.setSelectedIndex(carRecord.getAvailabilityTimestampDate().getDayOfMonth()-1);
             availableMonthCombobox1.setSelectedIndex(carRecord.getAvailabilityTimestampDate().getMonthValue()-1);
             availableYearCombobox.setSelectedIndex(carRecord.getAvailabilityTimestampDate().getYear()%2000);
-            availableHourTextField.setText(carRecord.getAvailabilityTimestampDate().getHour());
-            availableMinuteTextField.setText(carRecord.getAvailabilityTimestampDate().getMinute());
-            availableSecondTextField.setText(carRecord.getAvailabilityTimestampDate().getSecond());
+            availableHourTextField.setText(Integer.toString(carRecord.getAvailabilityTimestampDate().getHour()));
+            availableMinuteTextField.setText(Integer.toString(carRecord.getAvailabilityTimestampDate().getMinute()));
+            availableSecondTextField.setText(Integer.toString(carRecord.getAvailabilityTimestampDate().getSecond()));
           }
         
         manufacturerNameTextField.setText(carRecord.getManufacturer());
@@ -903,7 +936,7 @@ public class UberMainFrame extends javax.swing.JFrame {
         cityTextField.setText(carRecord.getGeographicData().getCity());
         maintainenaceDateComboBox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getDayOfMonth()-1);
         expiryMonthCombobox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getMonthValue()-1);
-        System.out.println(carRecord.getMaintenanceExpiryTimestampDate().getYear()%2000);
+        //System.out.println(carRecord.getMaintenanceExpiryTimestampDate().getYear()%2000);
         
         expiryYearCombobox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getYear()%2000);
         
@@ -941,7 +974,8 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
     
     private void populateTableHistory() {
         
-        
+        carCatalogTableModel.setRowCount(0);
+
         for(Car carRecord: carCatalog.getCars()) {
             String[] rowData = {
                 carRecord.getModelName(), 
@@ -965,6 +999,7 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
        unavailableCarCountLabel.setText(Integer.toString(carCatalog.getUnAvailableNumberOfCars()));
        manufacturerListValueLabel.setText(carCatalog.getListOfManufacturer());
        lastUpdatedTimeStampValueLabel.setText(carCatalog.getLastUpdatedTimestamp());
+       totalCarsValueLabel.setText(String.valueOf(carCatalog.getTotalCars()));
     
     }    
     
@@ -1005,9 +1040,84 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
     private void saveChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveChangesButtonActionPerformed
         // TODO add your handling code here:
         
+       if (formHeaderLabel.getText().contains("Create")) {
+       
         ArrayList<Car> carArray = carCatalog.getCars();
         Car carRecord = new Car();
-        carRecord.setModelName(modelNameTextField.getText().trim());
+        saveChangesInCarAndReturnCar(carRecord);
+        
+        
+        carArray.add(carRecord);
+        System.out.println(carRecord);
+
+        carCatalog.setCars(carArray);
+        System.out.println(carCatalog.getTotalCars());
+        
+        populateTableHistory();
+        JOptionPane.showConfirmDialog(null, "Created record successfully!", "Error!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.PLAIN_MESSAGE);
+        
+        
+        populateSearchTableHistory(carCatalog.getCars());
+
+
+
+
+       }
+       
+       if (formHeaderLabel.getText().contains("Update")) {
+           int selectedIndex = carCatalogTable.getSelectedRow();
+           Car carRecord = carCatalog.getCarAtIndex(selectedIndex);
+           saveChangesInCarAndReturnCar(carRecord);
+           carCatalog.setCarAtIndex(selectedIndex, carRecord);
+           populateTableHistory();
+           
+           JOptionPane.showConfirmDialog(null, "Record updated successfully!", "Error!",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.PLAIN_MESSAGE);
+        
+
+           populateSearchTableHistory(carCatalog.getCars());
+
+
+
+
+       }
+        
+          
+    }//GEN-LAST:event_saveChangesButtonActionPerformed
+    private void saveChangesInCarAndReturnCar(Car carRecord) {
+
+        String serialNumber= serialNumberTextField.getText().trim();
+
+        if (modelNameTextField.getText().trim().isEmpty()) {
+
+            JOptionPane.showConfirmDialog(null, "Please verify values for Model name. It should non-empty.", "Error!",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.PLAIN_MESSAGE);
+            return;
+
+        }
+
+        if (serialNumber.isEmpty()) {
+            JOptionPane.showConfirmDialog(null, "Please verify values for Serial Number. It should non-empty.", "Error!",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.PLAIN_MESSAGE);
+            return;
+        }
+
+        if (carCatalog.getCars().stream().anyMatch(car -> car.getSerialNumber().equals(serialNumber))) {
+            JOptionPane.showConfirmDialog(null, "Please verify values for Serial Number. It should unique.", "Error!",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.PLAIN_MESSAGE);
+            return;
+
+
+        }
+
+
+    carRecord.setModelName(modelNameTextField.getText().trim());
         carRecord.setIsAvailable(isAvailableCheckbox.isSelected());
         
         if(!isAvailableCheckbox.isSelected()) {
@@ -1031,17 +1141,9 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
         
         carRecord.setMaintenanceExpiryTimestamp(LocalDate.of((int) expiryYearCombobox.getSelectedItem(),
                 ((Month)expiryMonthCombobox.getSelectedItem()).getMonthNumber(), (int) maintainenaceDateComboBox.getSelectedItem()));
-        
-        
-        carArray.add(carRecord);
-        System.out.println(carRecord);
+        System.out.println("car saved updated");
 
-        carCatalog.setCars(carArray);
-        System.out.println(carCatalog.getTotalCars());
-        
-        populateTableHistory();
-    }//GEN-LAST:event_saveChangesButtonActionPerformed
-
+    }
     private void propertyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_propertyComboBoxActionPerformed
         // TODO add your handling code here:
         

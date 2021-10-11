@@ -8,6 +8,8 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
+
+import com.sun.istack.internal.NotNull;
 import model.GeographicData;
 
 /**
@@ -15,12 +17,14 @@ import model.GeographicData;
  * @author 18577
  */
 public class Car {
+    @NotNull
     private String modelName;
     private boolean isAvailable;
     private LocalDateTime availabilityTimestamp;
     private String manufacturer;
     private LocalDate manufacturedTimestamp;
     private int noOfSeats;
+    @NotNull
     private String serialNumber;
     private String modelNumber;
     private GeographicData geographicData;

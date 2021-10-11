@@ -160,7 +160,22 @@ public class CarCatalog {
         return cars.get(index);
     
   }
+
+
+public void setCarAtIndex(int index, Car car) {
+        
+         cars.set(index, car);
+         setLastUpdatedTimestamp(LocalDateTime.now());
+
     
+  }
+
+  public void removeCarAtIndex(int index) {
+        cars.remove(getCarAtIndex(index));
+        setLastUpdatedTimestamp(LocalDateTime.now());
+
+
+  }
     
     
     
