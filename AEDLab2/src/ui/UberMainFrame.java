@@ -925,14 +925,13 @@ public class UberMainFrame extends javax.swing.JFrame {
             availableMinuteTextField.setText(Integer.toString(carRecord.getAvailabilityTimestampDate().getMinute()));
             availableSecondTextField.setText(Integer.toString(carRecord.getAvailabilityTimestampDate().getSecond()));
           }
-        
+        modelNumberTextField.setText(carRecord.getModelNumber());
         manufacturerNameTextField.setText(carRecord.getManufacturer());
         manufacturedDateComboBox1.setSelectedIndex(carRecord.getManufacturedTimestampDate().getDayOfMonth()-1);
         manufacturedMonthCombobox.setSelectedIndex(carRecord.getManufacturedTimestampDate().getMonthValue()-1);
         manufacturedYearCombobox.setSelectedIndex(carRecord.getManufacturedTimestampDate().getYear()%2000);
         numberOfSeatSlider.setValue(carRecord.getNoOfSeats());
         serialNumberTextField.setText(carRecord.getSerialNumber());
-        modelNumberTextField.setText(carRecord.getSerialNumber());
         cityTextField.setText(carRecord.getGeographicData().getCity());
         maintainenaceDateComboBox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getDayOfMonth()-1);
         expiryMonthCombobox.setSelectedIndex(carRecord.getMaintenanceExpiryTimestampDate().getMonthValue()-1);
@@ -1045,10 +1044,9 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
         ArrayList<Car> carArray = carCatalog.getCars();
         Car carRecord = new Car();
         saveChangesInCarAndReturnCar(carRecord);
-        
-        
-        carArray.add(carRecord);
         System.out.println(carRecord);
+
+        carArray.add(carRecord);
 
         carCatalog.setCars(carArray);
         System.out.println(carCatalog.getTotalCars());
@@ -1128,7 +1126,7 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
                 Integer.parseInt(availableMinuteTextField.getText().trim()), 
                 Integer.parseInt(availableSecondTextField.getText().trim())));
         }
-       
+       carRecord.setModelNumber(modelNumberTextField.getText().trim());
         carRecord.setManufacturer(manufacturerNameTextField.getText().trim());
         carRecord.setManufacturedTimestamp(LocalDate.of((int) manufacturedYearCombobox.getSelectedItem(),
                 ((Month)manufacturedMonthCombobox.getSelectedItem()).getMonthNumber(), (int) manufacturedDateComboBox1.getSelectedItem()));
@@ -1141,7 +1139,7 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
         
         carRecord.setMaintenanceExpiryTimestamp(LocalDate.of((int) expiryYearCombobox.getSelectedItem(),
                 ((Month)expiryMonthCombobox.getSelectedItem()).getMonthNumber(), (int) maintainenaceDateComboBox.getSelectedItem()));
-        System.out.println("car saved updated");
+        System.out.println(carRecord);
 
     }
     private void propertyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_propertyComboBoxActionPerformed
