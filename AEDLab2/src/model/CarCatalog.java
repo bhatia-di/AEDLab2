@@ -39,7 +39,7 @@ public class CarCatalog {
                 LocalDateTime.of(2021, java.time.Month.SEPTEMBER, 30, 20, 00, 00), 
                 "Toyota", 
                 LocalDate.of(2015, java.time.Month.MARCH, 23),
-                4, "1HNN9734983498MS", "SX5",
+                4, "1HNN97349MS", "SX5",
                 new GeographicData("", "Boston", "MA", "USA", "02115"),
                 LocalDate.of(2021, java.time.Month.SEPTEMBER, 30)));
         
@@ -47,14 +47,14 @@ public class CarCatalog {
                 LocalDateTime.of(2021, java.time.Month.SEPTEMBER, 30, 20, 00, 00), 
                 "Toyota", 
                 LocalDate.of(2015, java.time.Month.MARCH, 23),
-                6, "1HNN9734983498MS", "SX5",
+                6, "2HNN9734983BMS", "SX5",
                 new GeographicData("", "Cambridge", "MA", "USA", "02115"),
                 LocalDate.of(2021, java.time.Month.SEPTEMBER, 30)));
         
          cars.add(new Car("X1", true, null,
                 "BMW", 
                 LocalDate.of(2015, java.time.Month.MARCH, 23),
-                6, "1HNN9734983498MS", "SX5",
+                6, "13NN9734983498MS", "SX5",
                 new GeographicData("", "Cambridge", "MA", "USA", "02115"),
                 LocalDate.of(2021, java.time.Month.SEPTEMBER, 30)));
          
@@ -62,7 +62,7 @@ public class CarCatalog {
           cars.add(new Car("X2", true, null,
                 "BMW", 
                 LocalDate.of(2015, java.time.Month.MARCH, 23),
-                6, "1HNN9734983498MS", "SX5",
+                6, "09HBHN9734983498MS", "SX5",
                 new GeographicData("", "Cambridge", "MA", "USA", "02115"),
                 LocalDate.of(2021, java.time.Month.SEPTEMBER, 30)));
           
@@ -71,14 +71,14 @@ public class CarCatalog {
            cars.add(new Car("X3", true, null,          
                 "BMW", 
                 LocalDate.of(2015, java.time.Month.MARCH, 23),
-                6, "1HNN9ty734983498MS", "SX5",
+                6, "1HNTY734983498MS", "SX5",
                 new GeographicData("", "Burligton", "MA", "USA", "02115"),
                 LocalDate.of(2021, java.time.Month.SEPTEMBER, 30)));
            
             cars.add(new Car("Z1", true, null,
                 "BMW", 
                 LocalDate.of(2015, java.time.Month.MARCH, 23),
-                6, "1HNN97349r83498MS", "SX5",
+                6, "1HUYUTYR49498MS", "SX5",
                 new GeographicData("", "Cambridge", "MA", "USA", "02115"),
                 LocalDate.of(2025, java.time.Month.SEPTEMBER, 30)));
             
@@ -87,7 +87,7 @@ public class CarCatalog {
                 LocalDateTime.of(2021, java.time.Month.SEPTEMBER, 30, 20, 00, 00), 
                 "MITUSABHI", 
                 LocalDate.of(2015, java.time.Month.MARCH, 23),
-                6, "1HNN97346983498MS", "SX5",
+                6, "78H997NN8MS", "SX5",
                 new GeographicData("", "Reading", "MA", "USA", "02115"),
                 LocalDate.of(2023, java.time.Month.JUNE, 30)));
         

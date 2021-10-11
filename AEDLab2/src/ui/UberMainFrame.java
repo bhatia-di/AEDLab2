@@ -1043,21 +1043,26 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
        
         ArrayList<Car> carArray = carCatalog.getCars();
         Car carRecord = new Car();
-        saveChangesInCarAndReturnCar(carRecord);
-        System.out.println(carRecord);
+        int resp = saveChangesInCarAndReturnCar(carRecord);
+        if (resp == 1) {
+            System.out.println(carRecord);
 
-        carArray.add(carRecord);
+            carArray.add(carRecord);
 
-        carCatalog.setCars(carArray);
-        System.out.println(carCatalog.getTotalCars());
-        
-        populateTableHistory();
-        JOptionPane.showConfirmDialog(null, "Created record successfully!", "Error!",
-                        JOptionPane.DEFAULT_OPTION,
-                        JOptionPane.PLAIN_MESSAGE);
-        
-        
-        populateSearchTableHistory(carCatalog.getCars());
+            carCatalog.setCars(carArray);
+            System.out.println(carCatalog.getTotalCars());
+
+            populateTableHistory();
+            JOptionPane.showConfirmDialog(null, "Created record successfully!", "Error!",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.PLAIN_MESSAGE);
+
+
+            populateSearchTableHistory(carCatalog.getCars());
+
+
+        }
+
 
 
 
@@ -1067,16 +1072,20 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
        if (formHeaderLabel.getText().contains("Update")) {
            int selectedIndex = carCatalogTable.getSelectedRow();
            Car carRecord = carCatalog.getCarAtIndex(selectedIndex);
-           saveChangesInCarAndReturnCar(carRecord);
-           carCatalog.setCarAtIndex(selectedIndex, carRecord);
-           populateTableHistory();
-           
-           JOptionPane.showConfirmDialog(null, "Record updated successfully!", "Error!",
-                        JOptionPane.DEFAULT_OPTION,
-                        JOptionPane.PLAIN_MESSAGE);
-        
+           int resp = saveChangesInCarAndReturnCar(carRecord);
+           if (resp == 1) {
+               carCatalog.setCarAtIndex(selectedIndex, carRecord);
+               populateTableHistory();
 
-           populateSearchTableHistory(carCatalog.getCars());
+               JOptionPane.showConfirmDialog(null, "Record updated successfully!", "Error!",
+                       JOptionPane.DEFAULT_OPTION,
+                       JOptionPane.PLAIN_MESSAGE);
+
+
+               populateSearchTableHistory(carCatalog.getCars());
+
+           }
+
 
 
 
@@ -1085,7 +1094,7 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
         
           
     }//GEN-LAST:event_saveChangesButtonActionPerformed
-    private void saveChangesInCarAndReturnCar(Car carRecord) {
+    private int saveChangesInCarAndReturnCar(Car carRecord) {
 
         String serialNumber= serialNumberTextField.getText().trim();
 
@@ -1094,7 +1103,7 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
             JOptionPane.showConfirmDialog(null, "Please verify values for Model name. It should non-empty.", "Error!",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE);
-            return;
+            return 0;
 
         }
 
@@ -1102,14 +1111,14 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
             JOptionPane.showConfirmDialog(null, "Please verify values for Serial Number. It should non-empty.", "Error!",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE);
-            return;
+            return 0;
         }
 
         if (carCatalog.getCars().stream().anyMatch(car -> car.getSerialNumber().equals(serialNumber))) {
             JOptionPane.showConfirmDialog(null, "Please verify values for Serial Number. It should unique.", "Error!",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE);
-            return;
+            return 0;
 
 
         }
@@ -1140,6 +1149,7 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
         carRecord.setMaintenanceExpiryTimestamp(LocalDate.of((int) expiryYearCombobox.getSelectedItem(),
                 ((Month)expiryMonthCombobox.getSelectedItem()).getMonthNumber(), (int) maintainenaceDateComboBox.getSelectedItem()));
         System.out.println(carRecord);
+        return 1;
 
     }
     private void propertyComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_propertyComboBoxActionPerformed
