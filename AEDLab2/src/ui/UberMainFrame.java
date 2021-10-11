@@ -1114,7 +1114,7 @@ private void setAvailableTimestampFormEnableDisable(boolean availability) {
             return 0;
         }
 
-        if (carCatalog.getCars().stream().anyMatch(car -> car.getSerialNumber().equals(serialNumber))) {
+        if (formHeaderLabel.getText().contains("Create") && carCatalog.getCars().stream().anyMatch(car -> car.getSerialNumber().equals(serialNumber))) {
             JOptionPane.showConfirmDialog(null, "Please verify values for Serial Number. It should unique.", "Error!",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.PLAIN_MESSAGE);
